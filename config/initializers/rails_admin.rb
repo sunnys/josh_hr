@@ -38,4 +38,114 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.model 'User' do
+    object_label_method do
+      :custom_label_method
+    end
+  end
+
+  config.model 'PersonelDetail' do
+    object_label_method do
+      :custom_label_method
+    end
+  end
+
+  config.model 'ProfessionalDetail' do
+    object_label_method do
+      :custom_label_method
+    end
+  end
+
+  config.model 'Wife' do
+    visible false
+  end
+
+  config.model 'Kid' do
+    visible false
+  end
+
+  config.model 'OtherRelation' do
+    visible false
+  end
+
+  config.model 'FamilyDetail' do
+    visible false
+  end
+
+  config.model 'BankAccount' do
+    visible false
+  end
+
+  config.model 'Education' do
+    visible false
+  end
+
+  config.model 'HomeAddress' do
+    visible false
+  end
+
+  config.model 'HospitalAdmissionHistory' do
+    visible false
+  end
+
+  config.model 'Investment' do
+    visible false
+  end
+
+  config.model 'Loan' do
+    visible false
+  end
+
+  config.model 'MedicalCat' do
+    visible false
+  end
+
+  config.model 'ProfessionalTrainingAndCourse' do
+    visible false
+  end
+
+  config.model 'Sport' do
+    visible false
+  end
+
+  config.model 'DependentCard' do
+    visible false
+  end
+
+  config.model 'Discipline' do
+    visible false
+  end
+
+  config.model 'Service' do
+    visible false
+  end
+
+  config.model 'Appointment' do
+    visible false
+  end
+
+  config.model 'Promotion' do
+    visible false
+  end
+
+  config.model 'Reversion' do
+    visible false
+  end
+
+  config.model 'TechTradeTest' do
+    visible false
+  end
+
+  config.model 'PromotionCadre' do
+    visible false
+  end
+
+  config.model 'Absense' do
+    visible false
+  end
+
+  config.model 'Desertion' do
+    visible false
+  end
 end

@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  army_no: MyString
+  father_name: MyString
+  rank: MyString
+  appointment: MyString
+  name: MyString
+  religion: MyString
+  main_class: MyString
+  sub_class: MyString
+  med_cat: MyString
+  mothertongue: MyString
+  date_of_enrolment: 2019-03-25
+  date_of_birth: 2019-03-25
+  age_on_enrolment: 1.5
+  attestation: MyString
+  date_of_attestation: 2019-03-25
+  driving_license_no: MyString
+  mobile_no: MyString
+  adhar_no: MyString
+  pancard_no: MyString
+  email: MyString
+  photo: MyString
+
+two:
+  army_no: MyString
+  father_name: MyString
+  rank: MyString
+  appointment: MyString
+  name: MyString
+  religion: MyString
+  main_class: MyString
+  sub_class: MyString
+  med_cat: MyString
+  mothertongue: MyString
+  date_of_enrolment: 2019-03-25
+  date_of_birth: 2019-03-25
+  age_on_enrolment: 1.5
+  attestation: MyString
+  date_of_attestation: 2019-03-25
+  driving_license_no: MyString
+  mobile_no: MyString
+  adhar_no: MyString
+  pancard_no: MyString
+  email: MyString
+  photo: MyString

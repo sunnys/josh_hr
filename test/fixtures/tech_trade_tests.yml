@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hindi: MyString
+  mr: MyString
+  grade: MyString
+  date: 2019-03-26
+  promotion_id: 1
+
+two:
+  hindi: MyString
+  mr: MyString
+  grade: MyString
+  date: 2019-03-26
+  promotion_id: 1

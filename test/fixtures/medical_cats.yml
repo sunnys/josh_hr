@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2019-03-26
+  nature_of_emergency: MyString
+  permanent: false
+  period_year: 1
+  period_month: 1
+  hospitalized: false
+  personel_detail_id: 1
+
+two:
+  date: 2019-03-26
+  nature_of_emergency: MyString
+  permanent: false
+  period_year: 1
+  period_month: 1
+  hospitalized: false
+  personel_detail_id: 1

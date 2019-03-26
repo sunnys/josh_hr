@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  army_no: MyString
+  local_course: MyString
+  pri_cadre: MyString
+  army_course: MyString
+  rules: MyString
+  posting: MyString
+  user_id: 1
+
+two:
+  army_no: MyString
+  local_course: MyString
+  pri_cadre: MyString
+  army_course: MyString
+  rules: MyString
+  posting: MyString
+  user_id: 1

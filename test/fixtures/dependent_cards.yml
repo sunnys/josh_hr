@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name_of_dependent: MyString
+  dependent_type: MyString
+  date_of_birth: 2019-03-26
+  date_of_issue: 2019-03-26
+  personel_detail_id: 1
+
+two:
+  name_of_dependent: MyString
+  dependent_type: MyString
+  date_of_birth: 2019-03-26
+  date_of_issue: 2019-03-26
+  personel_detail_id: 1

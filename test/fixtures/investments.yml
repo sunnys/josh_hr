@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  investment_type: MyString
+  amount: 
+  premium: 
+  period: 1
+  date_of_maturity: 2019-03-26
+  personal_detail_id: 1
+
+two:
+  investment_type: MyString
+  amount: 
+  premium: 
+  period: 1
+  date_of_maturity: 2019-03-26
+  personal_detail_id: 1

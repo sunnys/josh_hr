@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2019-03-26
+  nature_of_casualty: MyString
+  professional_detail_id: MyString
+
+two:
+  date: 2019-03-26
+  nature_of_casualty: MyString
+  professional_detail_id: MyString

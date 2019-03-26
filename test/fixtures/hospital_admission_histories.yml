@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2019-03-26
+  time: 2019-03-26 14:32:41
+  nature_of_casuality: MyString
+  name_of_hospital: MyString
+  date_of_discharge: 2019-03-26
+  transferred: false
+  medical_cat_id: 1
+
+two:
+  date: 2019-03-26
+  time: 2019-03-26 14:32:41
+  nature_of_casuality: MyString
+  name_of_hospital: MyString
+  date_of_discharge: 2019-03-26
+  transferred: false
+  medical_cat_id: 1

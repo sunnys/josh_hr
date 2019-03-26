@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rank: MyString
+  date: 2019-03-26
+  promotion_id: 1
+
+two:
+  rank: MyString
+  date: 2019-03-26
+  promotion_id: 1

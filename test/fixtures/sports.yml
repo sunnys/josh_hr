@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sport_name: MyString
+  level: MyString
+  from: 2019-03-26
+  to: 2019-03-26
+  playing_currently: false
+  represented_country: false
+  personel_detail_id: 1
+
+two:
+  sport_name: MyString
+  level: MyString
+  from: 2019-03-26
+  to: 2019-03-26
+  playing_currently: false
+  represented_country: false
+  personel_detail_id: 1

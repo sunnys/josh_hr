@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rank: MyString
+  appointment: MyString
+  date: 2019-03-26
+  promoted: false
+  professional_detail_id: 1
+
+two:
+  rank: MyString
+  appointment: MyString
+  date: 2019-03-26
+  promoted: false
+  professional_detail_id: 1

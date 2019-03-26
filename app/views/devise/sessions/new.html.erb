@@ -1,26 +1,31 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="account-page">
+  <div class="container">
+    <h3 class="account-title">Management Login</h3>
+    <div class="account-box">
+      <div class="account-wrapper">
+        <div class="account-logo">
+          <a href="index.html"><img src="/assets/logo2.png" alt="Focus Technologies"></a>
+        </div>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-group form-focus">
+            <%= f.label :email, class: "control-label"%>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control floating" %>
+          </div>
+          <div class="form-group form-focus">
+            <%= f.label :password, class: "control-label" %><br />
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control floating" %>
+          </div>
+          <div class="form-group text-center">
+            <%= f.submit "Login", class: "btn btn-primary btn-block account-btn" %>
+          </div>
+          <div class="text-center">
+            <%= render "devise/shared/links" %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+

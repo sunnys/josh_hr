@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  single_bank_account: MyString
+  joint_acount_no: MyString
+  ifsc_code: MyString
+  micr_no: MyString
+  bank_code: MyString
+  personel_detail_id: 1
+
+two:
+  single_bank_account: MyString
+  joint_acount_no: MyString
+  ifsc_code: MyString
+  micr_no: MyString
+  bank_code: MyString
+  personel_detail_id: 1

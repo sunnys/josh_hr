@@ -1,0 +1,2 @@
+class OtherRelation < FamilyDetail
+end

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_of_marriage: 2019-03-26
+  status: false
+
+two:
+  date_of_marriage: 2019-03-26
+  status: false

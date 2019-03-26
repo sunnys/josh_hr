@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  personel_detail_id: 1
+  house_no: 1
+  street: MyString
+  town: MyString
+  post_office: MyString
+  to_and_distance_from: 1.5
+  police_station: MyString
+  tehsil: MyString
+  district: MyString
+  state: MyString
+  nrs_and_distance_from_home: MyString
+
+two:
+  personel_detail_id: 1
+  house_no: 1
+  street: MyString
+  town: MyString
+  post_office: MyString
+  to_and_distance_from: 1.5
+  police_station: MyString
+  tehsil: MyString
+  district: MyString
+  state: MyString
+  nrs_and_distance_from_home: MyString

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  loan_type: MyString
+  amount: 
+  emi: 
+  duration: 1
+  loan_sanction_date: 2019-03-26
+  personel_detail_id: 1
+
+two:
+  loan_type: MyString
+  amount: 
+  emi: 
+  duration: 1
+  loan_sanction_date: 2019-03-26
+  personel_detail_id: 1

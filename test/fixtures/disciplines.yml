@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  place: MyString
+  date_of_offence: 2019-03-26
+  rank: MyString
+  offence: MyText
+  punishment_awarded: false
+  date_of_award_of_order: 2019-03-26
+  professional_detail_id: 1
+
+two:
+  place: MyString
+  date_of_offence: 2019-03-26
+  rank: MyString
+  offence: MyText
+  punishment_awarded: false
+  date_of_award_of_order: 2019-03-26
+  professional_detail_id: 1

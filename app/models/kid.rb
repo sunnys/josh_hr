@@ -1,0 +1,2 @@
+class Kid < FamilyDetail
+end

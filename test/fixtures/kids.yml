@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sex: MyString
+  place_of_birth: 2019-03-26
+
+two:
+  sex: MyString
+  place_of_birth: 2019-03-26
