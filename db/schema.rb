@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_28_110356) do
+ActiveRecord::Schema.define(version: 2019_03_28_140700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,33 @@ ActiveRecord::Schema.define(version: 2019_03_28_110356) do
     t.string "micr_no"
     t.string "bank_code"
     t.integer "personel_detail_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "battle_honors", force: :cascade do |t|
+    t.integer "unit_id"
+    t.string "photo"
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "champions", force: :cascade do |t|
+    t.integer "unit_id"
+    t.string "champ_name"
+    t.string "photo"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "commanding_officers", force: :cascade do |t|
+    t.integer "unit_id"
+    t.string "photo"
+    t.string "name"
+    t.string "designation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -197,6 +224,16 @@ ActiveRecord::Schema.define(version: 2019_03_28_110356) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "notable_people", force: :cascade do |t|
+    t.integer "unit_id"
+    t.string "photo"
+    t.string "person_name"
+    t.text "description"
+    t.string "army_no"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "other_relations", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -282,6 +319,13 @@ ActiveRecord::Schema.define(version: 2019_03_28_110356) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "rank_masters", force: :cascade do |t|
+    t.string "name"
+    t.integer "level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reversions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -333,6 +377,22 @@ ActiveRecord::Schema.define(version: 2019_03_28_110356) do
     t.integer "promotion_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "unit_galleries", force: :cascade do |t|
+    t.integer "unit_id"
+    t.string "photo"
+    t.string "caption"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "units", force: :cascade do |t|
+    t.string "name"
+    t.text "history"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "unit_logo"
   end
 
   create_table "users", force: :cascade do |t|

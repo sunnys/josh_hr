@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>home</title>
+<meta charset="utf-8">    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<meta name="description" content="Your description">
+<meta name="keywords" content="Your keywords">
+<meta name="author" content="Your name">
+<meta name = "format-detection" content = "telephone=no" />
+<!--CSS-->
+<link rel="stylesheet" href="css/bootstrap.css" >
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/camera.css">
+<!--JS-->
+<script src="js/jquery.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/superfish.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/jquery.mobilemenu.js"></script>
+<script src="js/jquery.ui.totop.js"></script>
+<script src="js/jquery.equalheights.js"></script>
+<script src="js/camera.js"></script>
+<!--[if (gt IE 9)|!(IE)]><!-->
+      <script src="js/jquery.mobile.customized.min.js"></script>
+<!--<![endif]-->
+<script src="js/jquery.carouFredSel-6.1.0-packed.js"></script>
+<script src="js/jquery.mousewheel.min.js"></script>
+<script src="js/jquery.touchSwipe.min.js"></script>
+<script src="js/sForm.js"></script>
+<script>
+$(window).load(function() {
+    $(function() {
+            $('#foo1').carouFredSel({
+				auto: false,
+				responsive: true,
+				width: '100%',
+				prev: '#prev',
+				next: '#next',
+				scroll: 1,
+				items: {
+					height: 'auto',
+					width:100,
+					visible: {
+						min: 1,
+						max: 21
+					}
+				},
+				mousewheel: true,
+				swipe: {
+					onMouse: true,
+					onTouch: true
+				}
+			});
+		}); 	 				
+    });
+</script> 
+<script>
+    $(document).ready(function(){
+        jQuery('.camera_wrap').camera();
+    });
+</script>
+</head>
+<body>
+<!--header-->
+<div class="main">
+    <header>
+        <div class="container">
+            <div class="row">
+                <article class="col-lg-12 col-md-12 col-sm-12">
+                    <h1 class="navbar-brand navbar-brand_"><a href="index.html"><img src="img/logo.png" alt=""></a></h1>
+                    <div class="menuBox clearfix">
+                        <nav class="navbar navbar-default navbar-static-top tm_navbar clearfix" role="navigation">
+                            <ul class="nav sf-menu clearfix">
+                                <li class="active"><a href="index.html">Home</a></li>
+                                <li class="sub-menu"><a href="index-1.html">Soldiers life<span></span></a>
+                                    <ul class="submenu">
+                        				<li><a href="index.html#">Loremb</a></li>
+                        				<li><a href="index.html#">Kityuop</a></li>
+                        				<li><a href="index.html#">Wer tyuop</a></li>
+                        			</ul>
+                                </li>
+                                <li><a href="index-2.html">Services</a></li>
+                                <li><a href="index-3.html">Gallery</a></li>
+                                <li><a href="index-4.html">News</a></li>
+                                <li><a href="index-5.html">Contacts</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </header>
+    <article class="slider">
+        <div class="camera_wrap">
+            <div data-src="img/picture1.jpg"><div class="camera-caption fadeIn"><p class="title">The country is strong with a strong army</p><p class="descrip">Lorem ipsum dolor sit amet, consectetuer adipiscing eli praesent luptatum</p><a href="index.html#" class="btn-default btn2">More info</a></div></div>
+            <div data-src="img/picture2.jpg"><div class="camera-caption fadeIn"><p class="title">The country is strong with a strong army</p><p class="descrip">Lorem ipsum dolor sit amet, consectetuer adipiscing eli praesent luptatum</p><a href="index.html#" class="btn-default btn2">More info</a></div></div>
+        </div>
+    </article>
+    <div class="global">
+        <div class="container">
+            <div class="row">
+                <section class="bannerBox clearfix">
+                    <article class="col-lg-3 col-md-3 col-sm-6 col-xs-6 maxheight">
+                        <figure><a href="index.html#"><img src="img/page1_pic1.png" alt=""></a></figure>
+                        <div class="caption">
+                            <p class="title">Infantry</p>
+                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit</p>
+                        </div>
+                    </article>
+                    <article class="col-lg-3 col-md-3 col-sm-6 col-xs-6 maxheight">
+                        <figure><a href="index.html#"><img src="img/page1_pic2.png" alt=""></a></figure>
+                        <div class="caption">
+                            <p class="title">Aviation</p>
+                            <p>Wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit</p>
+                        </div>
+                    </article>
+                    <article class="col-lg-3 col-md-3 col-sm-6 col-xs-6 maxheight">
+                        <figure><a href="index.html#"><img src="img/page1_pic3.png" alt=""></a></figure>
+                        <div class="caption">
+                            <p class="title">Landing</p>
+                            <p>Ad minim veniam, quis nostrud exerci tation ullamcorper suscipit</p>
+                        </div>
+                    </article>
+                    <article class="col-lg-3 col-md-3 col-sm-6 col-xs-6 maxheight">
+                        <figure><a href="index.html#"><img src="img/page1_pic4.png" alt=""></a></figure>
+                        <div class="caption">
+                            <p class="title">Navy</p>
+                            <p>Veniam, quis nostrud exerci tation lobortis nisl ut aliquip ex ea commodo</p>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
+        <section class="smallPic">
+            <div class="list_carousel1 responsive clearfix">
+                <ul id="foo1">
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict1.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict2.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict3.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict4.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict5.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict6.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict7.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict8.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict9.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict10.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict11.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict12.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict13.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict14.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict15.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict16.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict17.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict18.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict19.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict20.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict21.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict22.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict23.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict24.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict25.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict26.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict27.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict28.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict1.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict2.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict3.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict4.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict5.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict6.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict7.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict8.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict9.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict10.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict11.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict12.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict13.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict14.jpg" alt=""></a></figure>
+                    </li>
+                    <li>
+                        <figure><a href="index.html#"><img src="img/page1_pict15.jpg" alt=""></a></figure>
+                        <figure><a href="index.html#"><img src="img/page1_pict16.jpg" alt=""></a></figure>
+                    </li>
+                </ul>
+                <div class="foo-btn">
+                    <a id="prev" class="prev" href="index.html#"></a>
+                    <a id="next" class="next" href="index.html#"></a>
+                </div>
+            </div>
+        </section>
+        <div class="container">
+            <div class="row">
+                <article class="col-lg-3 col-md-6 col-sm-6 col-xs-6 banner-box">
+                    <div>
+                        <figure><img src="img/page1_pic1.jpg" alt=""></figure>
+                        <div class="caption">
+                            <div class="badge">12<br>10</div>
+                            <p class="title1">Typi non habent claritatem</p>
+                            <p class="title2">Qel eumantry</p>
+                            <p>Enim ad minim veniam, qum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-lg-3 col-md-6 col-sm-6 col-xs-6 banner-box">
+                    <div>
+                        <figure><img src="img/page1_pic2.jpg" alt=""></figure>
+                        <div class="caption">
+                            <div class="badge">23<br>11</div>
+                            <p class="title1">Ut wisi enim ad minim veni</p>
+                            <p class="title2">Eodem modo</p>
+                            <p>Qum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-lg-3 col-md-6 col-sm-6 col-xs-6 banner-box">
+                    <div>
+                        <figure><img src="img/page1_pic3.jpg" alt=""></figure>
+                        <div class="caption">
+                            <div class="badge">5<br>12</div>
+                            <p class="title1">Nam liber tempor cum soluta</p>
+                            <p class="title2">Feugait nulla</p>
+                            <p>Veniam, qum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-lg-3 col-md-6 col-sm-6 col-xs-6 banner-box">
+                    <div>
+                        <figure><img src="img/page1_pic4.jpg" alt=""></figure>
+                        <div class="caption">
+                            <div class="badge">17<br>12</div>
+                            <p class="title1">Claritas est etiam processu</p>
+                            <p class="title2">Lorem ipsum</p>
+                            <p>Ad minim veniam, qum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <section class="newsletterBox">
+            <div class="container">
+                <div class="row">
+                    <article class="col-lg-12 col-md-12 col-sm-12">
+                        <h2>Newsletter</h2>
+                        <p>Sign up to our newsletter to receive <br>the latest news and events</p>
+                        <form id="newsletter" accept-charset="utf-8">
+        					<div class="success">Your subscribe request has been sent!</div>
+        				    <label class="email">
+        				    	<input type="email" class="form-control" value="E-mail">
+        				    	<span class="error">*This is not a valid email address.</span>
+        				    </label>
+                            <a href="index.html#" data-type="submit" class="btn-default btn3">Submit</a>
+        				</form>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<!--footer-->
+<footer>
+    <div class="container">
+        <div class="row">
+            <article class="col-lg-12 col-md-12 col-sm-12">
+                <figure><img src="img/foo_logo.png" alt=""></figure>
+                <p>&copy; <em id="copyright-year"></em> | <a href="index-6.html">Privacy Policy</a></p>
+            </article>
+        </div>
+    </div>
+  <!-- {%FOOTER_LINK} -->
+</footer>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/tm-scripts.js"></script>
+</html>

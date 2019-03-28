@@ -49,13 +49,13 @@
                     </div>
                     <div class="col-md-6 text-center">
                         <div class="card-box">
-                            <h3 class="card-title">State</h3>
+                            <h3 class="card-title">Sports</h3>
                             <div id="pie-charts"></div>
                         </div>
                     </div>
                     <div class="col-md-6 text-center">
                         <div class="card-box">
-                            <h3 class="card-title">Sports</h3>
+                            <h3 class="card-title">State</h3>
                             <div id="line-charts"></div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="panel panel-table">
                     <div class="panel-heading">
                         <h3 class="panel-title">On Leave</h3>
@@ -111,7 +111,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="panel panel-table">
                     <div class="panel-heading">
                         <h3 class="panel-title">On Field</h3>
@@ -149,12 +149,10 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="panel panel-table">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Clients</h3>
+                        <h3 class="panel-title">Achievers</h3>
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
@@ -194,10 +192,13 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <h2> Need Attention </h2>
             <div class="col-md-6">
                 <div class="panel panel-table">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Investments</h3>
+                    <div class="panel-heading" style="background-color:red;color:white;">
+                        <h3 class="panel-title">JCO's/OR's Low investment/High loans</h3>
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
@@ -233,6 +234,37 @@
                     </div>
                     <div class="panel-footer">
                         <a href="/investments_index" class="text-primary">View all investments</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-table">
+                    <div class="panel-heading red" style="background-color:red;color:white;">
+                        <h3 class="panel-title">JCO's/OR's with no courses</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped custom-table m-b-0">
+                                <thead>
+                                    <tr>
+                                        <th class="col-md-3">Army No </th>
+                                        <th class="col-md-3">Jawan Name </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% @no_courses.last(5).each do |ti| %>
+                                        <% if !ti.nil? %>
+                                        <tr>
+                                            <td>
+                                                <h2><a href="project-view.html"></a><%= ti.army_no %></a></h2>
+                                            </td>
+                                            <td><%= ti.user.username %></td>
+                                        </tr>
+                                        <% end %>
+                                    <% end %>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

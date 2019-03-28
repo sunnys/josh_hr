@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  unit_id: 1
+  champ_name: MyString
+  photo: MyString
+  description: MyString
+
+two:
+  unit_id: 1
+  champ_name: MyString
+  photo: MyString
+  description: MyString

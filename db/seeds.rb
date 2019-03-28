@@ -32,6 +32,10 @@ rules.each do  |r|
     MasterRule.create!(r)
 end
 
+ranks.reverse.each_with_index do |r, i|
+    RankMaster.create!(name: r, level: i)
+end
+
 religion = ['Hindu', 'Muslim', 'Sikh', 'Christian', 'Budhdhism', 'Jain']
 mothertongue = ['Hindi', 'Marathi', 'Punjabi', 'Gujrati', 'Bengali']
 
@@ -58,8 +62,8 @@ def add_disembodiment(professional_detail, rule_name, days)
         professional_detail_id: professional_detail.id
     })
 end
-# begin
-100.times do 
+
+def create_personals
     army_no = Random.rand(10000000..99999999).to_s + ((65 + rand(26)).chr).to_s
     name = FFaker::Name.name
     father_name = FFaker::Name.name
@@ -179,17 +183,10 @@ end
     add_embodiment(professional_detail, ['TA ACT RULE 20', 'TA ACT RULE 21', 'TA ACT RULE 21-A', 'TA ACT RULE 33'].sample, date_of_enrolment,(no_of_days_in_service - rand(500)))
 
     add_disembodiment(professional_detail, "", rand(500))
-
-    # professional_detail.leave_records.create!({
-    #     type_of_leave: type_of_leave.sample, 
-    #     from: datetime, 
-    #     to: datetime, 
-    #     total_no_of_days: integer, 
-    #     date_of_rejoining: 
-    # })
+    u
 end
 
-User.all.each do |u|
+def update_leave_records(u)
     pd = u.professional_detail
     on_leave = [true, false].sample
     type_of_leave = ['AL', 'CL'].sample
@@ -205,7 +202,7 @@ User.all.each do |u|
     pd.save!
 end
 
-User.all.each do |u|
+def update_posting(u)
     pd = u.professional_detail
     on_leave = [true, false].sample
     # type_of_leave = ['AL', 'CL'].sample
@@ -222,7 +219,7 @@ User.all.each do |u|
     pd.save!
 end
 
-User.all.each do |u|
+def update_achievement(u)
     pd = u.professional_detail
     achiever = [true, false].sample
     if achiever
@@ -233,6 +230,19 @@ User.all.each do |u|
     end
     pd.save!
 end
+
+def generate_hierarchy
+    higher_ranks = RankMaster.where('level > ?', 15)
+    record_with_higher_ranks = PersonelDetail.where(rank: higher_ranks.map(&:name))
+    record_with_lower_ranks = PersonelDetail.where.not(rank: higher_ranks.map(&:name))
+end
+# begin
+# 100.times do 
+#     u = create_personals()
+#     update_leave_records(u)
+#     update_posting(u)
+#     update_achievement(u)
+# end
 
 
 # rescue Exception => ex

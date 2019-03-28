@@ -1,0 +1,2 @@
+class RankMaster < ApplicationRecord
+end

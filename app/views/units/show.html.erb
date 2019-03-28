@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Soldiers life</title>
+<meta charset="utf-8">    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="../cdn-cgi/apps/head/3ts2ksMwXvKRuG480KNifJ2_JNM.js"></script><link rel="icon" href="/landing_page/img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/landing_page/img/favicon.ico" type="image/x-icon" />
+<meta name="description" content="Your description">
+<meta name="keywords" content="Your keywords">
+<meta name="author" content="Your name">
+<!--CSS-->
+<link rel="stylesheet" href="/landing_page/css/bootstrap.css" >
+<link rel="stylesheet" href="/landing_page/css/style.css">
+<link rel="stylesheet" href="/landing_page/css/touchTouch.css">
+<link rel="stylesheet" href="fonts/font-awesome.css">
+<!--JS-->
+<script src="/landing_page/js/jquery.js"></script>
+<script src="/landing_page/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="/landing_page/js/superfish.js"></script>
+<script src="/landing_page/js/jquery.easing.1.3.js"></script>
+<script src="/landing_page/js/jquery.mobilemenu.js"></script>
+<script src="/landing_page/js/jquery.equalheights.js"></script> 
+<script src="/landing_page/js/jquery.ui.totop.js"></script>
+<script src="/landing_page/js/touchTouch.jquery.js"></script>
+<script>
+   $(window).load(function() {
+     // Initialize the gallery
+    $('.trainerBox figure a').touchTouch();
+  });
+</script>
+<!--[if lt IE 9]>
+    <div style='text-align:center'><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." /></a></div>  
+  <![endif]-->
+  <!--[if lt IE 9]><script src="../docs-assets//landing_page/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond./landing_page/js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+  <style>
+    .block-with-text {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical; 
+    }
+  </style>
+</head>
+<body>
+<!--header-->
+<div class="main">
+<header>
+    <div class="container">
+        <div class="row">
+            <article class="col-lg-12 col-md-12 col-sm-12">
+                <h1 class="navbar-brand navbar-brand_"><a href="index.html"><img src="/landing_page/img/logo.gif" alt="" style="width:25%;"></a></h1>
+                <div class="menuBox clearfix">
+                    <nav class="navbar navbar-default navbar-static-top tm_navbar clearfix" role="navigation">
+                            <ul class="nav sf-menu clearfix">
+                                <li class="active"><a href="/landing">Home</a></li>
+                                <li class="sub-menu"><a href="#">About<span></span></a>
+                                    <ul class="submenu">
+                        				<li><a href="/directorate">Directorate</a></li>
+                        				<li>
+                                            <a href="index.html#">Unit</a>
+                                            <ul class="submenu">
+                                                <li><a href="/units/1">111 Kumaon</a></li>
+                                                <li><a href="/units/1">150 Punjab</a></li>
+                                                <li><a href="/units/1">174 Engineers</a></li>
+                                            </ul>
+                                        </li>
+                        			</ul>
+                                </li>
+                                <li><a href="/landing_page/index-2.html">TA Policies</a></li>
+                                <li><a href="/landing_page/index-3.html">Gallery</a></li>
+                                <li><a href="/landing_page/index-4.html">News</a></li>
+                                <li><a href="/landing_page/index-5.html">FAQ</a></li>
+                                <li><a href="/users/sign_in">Login</a></li>
+                            </ul>
+                        </nav>
+                </div>
+            </article>
+        </div>
+    </div>
+</header>
+<section class="sub_pic">
+    <figure><img src="/landing_page/img/sub_pic.jpg" alt=""></figure>
+</section>
+<div class="global indent">
+    <!--content-->
+    <div class="container">
+        <div class="row">
+            <article class="col-lg-6 col-md-6 col-sm-12 who-box">
+                <h3>Unit Galary</h3>
+                <div class="thumb-pad4">
+                    <div class="thumbnail">
+                        <figure><img src="<%= @unit.unit_galleries.last.photo.url %>" alt=""></figure>
+                        <div class="caption">
+                            <h5><%= @unit.unit_galleries.last.caption %></h5>
+                            <p>Sed eu augue quam. Nunc sollicitudin lacinia justo sed ornare. Nunc semper bibendum magna, vel ornare lorem porttitor sed. Sed faucibus tellus vitae eros congue.</p>
+                            <p>Sed eu augue quam. Nunc sollicitudin lacinia justo sed ornare. Nunc semper bibendum magna, vel ornare lorem porttitor sed. Sed faucibus tellus vitae eros congue.</p>
+                            <a href="index-1.html#" class="btn-default btn1">More info</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="col-lg-6 col-md-6 col-sm-12 trainers-box">
+                <h3>History</h3>
+                <h5>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum.</h5>
+                <p><%= @unit.history %></p>
+                
+            </article>
+        </div>
+        <div class="row">
+          <article class="col-lg-6 col-md-6 col-sm-12 history-box">
+                <h3>Notable Achievements</h3>
+                <ul class="list6">
+                  <% @unit.notable_people.each_with_index.each do |bh, index| %>
+                    <li>
+                      <div class="badge"><%= index + 1%></div>
+                      <div class="extra-wrap">
+                          <h5><%= bh.person_name %></h5>
+                          <p><%= bh.description %></p>
+                      </div>
+                    </li>
+                  <% end %>
+                </ul>
+            </article>
+            <article class="col-lg-6 col-md-6 col-sm-12 history-box">
+                <h3>Battle Honors and distiguished services</h3>
+                <ul class="list6">
+                    <% @unit.battle_honors.each_with_index.each do |bh, index| %>
+                      <li>
+                        <div class="badge"><%= index + 1%></div>
+                        <div class="extra-wrap">
+                            <h5><%= bh.title %></h5>
+                            <p><%= bh.description %></p>
+                        </div>
+                      </li>
+                    <% end %>
+                    
+                </ul>
+            </article>
+        </div>
+    </div>
+    <section class="testimBox"> 
+        <div class="container">
+            <hr>
+            <h3>Our Team</h3>
+            <div class="row">
+              <% @unit.commanding_officers.each do |co|%>
+                <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                    <div class="thumb-pad3">
+                        <div class="thumbnail maxheight">
+                            <figure><img src="<%= co.photo.url %>" alt=""></figure>
+                            <div class="caption">
+                                <a href="index-1.html#"><%= co.name %></a>
+                                <p><%= co.designation %></p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+              <% end %>
+            </div>
+        </div>
+    </section>
+        <section class="testimBox"> 
+        <div class="container">
+            <hr>
+            <h3>Champions</h3>
+            <div class="row">
+              <% @unit.champions.each do |ch| %>
+                <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                    <div class="thumb-pad3">
+                        <div class="thumbnail maxheight">
+                            <figure><img src="<%= ch.photo.url %>" alt=""></figure>
+                            <div class="caption">
+                                <a href="index-1.html#"><%= ch.champ_name %></a>
+                                <p class="block-with-text"><%= ch.description %></p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+              <% end %>
+            </div>
+        </div>
+    </section>
+</div>
+</div>
+<!--footer-->
+<footer>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <article class="col-lg-12 col-md-12 col-sm-12">
+                <figure><img src="<%= @unit.unit_logo.url%>" alt=""></figure>
+                <p>&copy; <em id="copyright-year"></em> | <a href="index-6.html">Privacy Policy</a></p>
+            </article>
+        </div>
+    </div>
+</footer>
+<script src="/landing_page/js/bootstrap.min.js"></script>
+<script src="/landing_page/js/tm-scripts.js"></script>
+</body>
+</html>
