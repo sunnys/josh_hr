@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_28_140700) do
+ActiveRecord::Schema.define(version: 2019_03_28_151657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(version: 2019_03_28_140700) do
     t.string "photo"
     t.string "title"
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "blog_posts", force: :cascade do |t|
+    t.string "title"
+    t.string "caption"
+    t.text "description"
+    t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -126,6 +135,13 @@ ActiveRecord::Schema.define(version: 2019_03_28_140700) do
     t.date "date_of_birth"
     t.integer "personel_detail_id"
     t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "faqs", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -205,6 +221,14 @@ ActiveRecord::Schema.define(version: 2019_03_28_140700) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "main_galaries", force: :cascade do |t|
+    t.string "title"
+    t.string "caption"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "master_rules", force: :cascade do |t|
     t.string "rule"
     t.integer "period"
@@ -266,6 +290,14 @@ ActiveRecord::Schema.define(version: 2019_03_28_140700) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "trade"
+  end
+
+  create_table "policies", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "doc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posting_records", force: :cascade do |t|

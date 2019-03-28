@@ -10,6 +10,26 @@ class HomesController < ApplicationController
     render layout: false
   end
 
+  def policies
+    @policies = Policy.all
+    render layout: false
+  end
+
+  def faq
+    @faqs = Faq.all
+    render layout: false
+  end
+
+  def galary
+    @galaries = MainGalary.all
+    render layout: false
+  end
+
+  def news
+    @news = BlogPost.all
+    render layout: false
+  end
+
   def index
     @users = User.preload([:personel_detail, :professional_detail]).all
     @total_jawans = @users.count

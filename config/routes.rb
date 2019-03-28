@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/landing' => 'homes#landing_page'
   get '/directorate' => 'homes#directorate'
+  get '/policies' => 'homes#policies'
+  get '/faq' => 'homes#faq'
+  get '/galary' => 'homes#galary'
+  get '/news' => 'homes#news'
   get '/on_leave_index' => "homes#on_leave_index"
   get '/on_field_index' => "homes#on_field_index"
   get '/on_field_index' => "homes#on_field_index"

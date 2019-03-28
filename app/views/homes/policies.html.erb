@@ -39,14 +39,6 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond./landing_page/js/1.3.0/respond.min.js"></script>
   <![endif]-->
-  <style>
-    .block-with-text {
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical; 
-    }
-  </style>
 </head>
 <body>
 <!--header-->
@@ -92,102 +84,20 @@
     <!--content-->
     <div class="container">
         <div class="row">
-            <article class="col-lg-6 col-md-6 col-sm-12 who-box">
-                <h3>Unit Galary</h3>
-                <div class="thumb-pad4">
-                    <div class="thumbnail">
-                        <figure><img src="<%= @unit.unit_galleries.last.photo.url %>" alt=""></figure>
-                        <div class="caption">
-                            <h5><%= @unit.unit_galleries.last.caption %></h5>
-                            <p>Sed eu augue quam. Nunc sollicitudin lacinia justo sed ornare. Nunc semper bibendum magna, vel ornare lorem porttitor sed. Sed faucibus tellus vitae eros congue.</p>
-                            <p>Sed eu augue quam. Nunc sollicitudin lacinia justo sed ornare. Nunc semper bibendum magna, vel ornare lorem porttitor sed. Sed faucibus tellus vitae eros congue.</p>
-                            <a href="index-1.html#" class="btn-default btn1">More info</a>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            
-            <article class="col-lg-6 col-md-6 col-sm-12 trainers-box">
-                <h3>History</h3>
-                <h5>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum.</h5>
-                <p><%= @unit.history %></p>
-                
-            </article>
-        </div>
-        <div class="row">
-          <article class="col-lg-6 col-md-6 col-sm-12 history-box">
-                <h3>Notable Achievements</h3>
-                <ul class="list6">
-                  <% @unit.notable_people.each_with_index.each do |bh, index| %>
-                    <li>
-                      <div class="badge"><%= index + 1%></div>
-                      <div class="extra-wrap">
-                          <h5><%= bh.person_name %></h5>
-                          <p><%= bh.description %></p>
-                      </div>
-                    </li>
-                  <% end %>
-                </ul>
-            </article>
-            <article class="col-lg-6 col-md-6 col-sm-12 history-box">
-                <h3>Battle Honors and distiguished services</h3>
-                <ul class="list6">
-                    <% @unit.battle_honors.each_with_index.each do |bh, index| %>
-                      <li>
-                        <div class="badge"><%= index + 1%></div>
-                        <div class="extra-wrap">
-                            <h5><%= bh.title %></h5>
-                            <p><%= bh.description %></p>
-                        </div>
-                      </li>
+            <article class="col-lg-12 col-md-12 col-sm-12 privacyBox">
+                <h3>Policies</h3>
+                <ul class="list8">
+                    <% @policies.each do |policy| %>
+                        <li>
+                            <h5><%= policy.title %></h5>
+                            <p><%= policy.description %></p>
+                            <a href="<%= policy.doc.url %>">Download</a>
+                        </li>
                     <% end %>
-                    
                 </ul>
             </article>
         </div>
     </div>
-    <section class="testimBox"> 
-        <div class="container">
-            <hr>
-            <h3>Our Team</h3>
-            <div class="row">
-              <% @unit.commanding_officers.each do |co|%>
-                <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                    <div class="thumb-pad3">
-                        <div class="thumbnail maxheight">
-                            <figure><img src="<%= co.photo.url %>" alt=""></figure>
-                            <div class="caption">
-                                <a href="index-1.html#"><%= co.name %></a>
-                                <p><%= co.designation %></p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-              <% end %>
-            </div>
-        </div>
-    </section>
-        <section class="testimBox"> 
-        <div class="container">
-            <hr>
-            <h3>Champions</h3>
-            <div class="row">
-              <% @unit.champions.each do |ch| %>
-                <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                    <div class="thumb-pad3">
-                        <div class="thumbnail maxheight">
-                            <figure><img src="<%= ch.photo.url %>" alt=""></figure>
-                            <div class="caption">
-                                <a href="index-1.html#"><%= ch.champ_name %></a>
-                                <p class="block-with-text"><%= ch.description %></p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-              <% end %>
-            </div>
-        </div>
-    </section>
 </div>
 </div>
 <!--footer-->
@@ -196,7 +106,6 @@
     <div class="container">
         <div class="row">
             <article class="col-lg-12 col-md-12 col-sm-12">
-                <figure><img src="<%= @unit.unit_logo.url%>" alt=""></figure>
                 <p>&copy; <em id="copyright-year"></em> | <a href="index-6.html">Privacy Policy</a></p>
             </article>
         </div>
