@@ -5,8 +5,8 @@
                 <div class="dash-widget clearfix card-box">
                     <span class="dash-widget-icon"><i class="fa fa-cubes" aria-hidden="true"></i></span>
                     <div class="dash-widget-info">
-                        <h3>112</h3>
-                        <span>Projects</span>
+                        <h3><%= @total_jawans%></h3>
+                        <span>Total Jawans</span>
                     </div>
                 </div>
             </div>
@@ -14,8 +14,8 @@
                 <div class="dash-widget clearfix card-box">
                     <span class="dash-widget-icon"><i class="fa fa-usd" aria-hidden="true"></i></span>
                     <div class="dash-widget-info">
-                        <h3>44</h3>
-                        <span>Clients</span>
+                        <h3><%= @total_on_field.count%></h3>
+                        <span>On Field</span>
                     </div>
                 </div>
             </div>
@@ -23,8 +23,8 @@
                 <div class="dash-widget clearfix card-box">
                     <span class="dash-widget-icon"><i class="fa fa-diamond"></i></span>
                     <div class="dash-widget-info">
-                        <h3>37</h3>
-                        <span>Tasks</span>
+                        <h3><%= @total_on_peace%></h3>
+                        <span>On Peace</span>
                     </div>
                 </div>
             </div>
@@ -32,8 +32,8 @@
                 <div class="dash-widget clearfix card-box">
                     <span class="dash-widget-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
                     <div class="dash-widget-info">
-                        <h3>218</h3>
-                        <span>Employees</span>
+                        <h3><%= @total_on_leave.count %></h3>
+                        <span>On Leave</span>
                     </div>
                 </div>
             </div>
@@ -43,28 +43,29 @@
                 <div class="row">
                     <div class="col-md-6 text-center">
                         <div class="card-box">
-                            <h3 class="card-title">Total Revenue</h3>
+                            <h3 class="card-title">Trade Status</h3>
                             <div id="bar-charts"></div>
                         </div>
                     </div>
                     <div class="col-md-6 text-center">
                         <div class="card-box">
-                            <h3 class="card-title">Sales Overview</h3>
+                            <h3 class="card-title">State</h3>
+                            <div id="pie-charts"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <div class="card-box">
+                            <h3 class="card-title">Sports</h3>
                             <div id="line-charts"></div>
                         </div>
                     </div>
                     <div class="col-md-6 text-center">
                         <div class="card-box">
-                            <h3 class="card-title">Invoice Status</h3>
+                            <h3 class="card-title">Language</h3>
                             <div id="area-charts"></div>
                         </div>
                     </div>
-                    <div class="col-md-6 text-center">
-                        <div class="card-box">
-                            <h3 class="card-title">Overall Status</h3>
-                            <div id="pie-charts"></div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -72,114 +73,79 @@
             <div class="col-md-6">
                 <div class="panel panel-table">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Invoices</h3>
+                        <h3 class="panel-title">On Leave</h3>
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
                             <table class="table table-striped custom-table m-b-0">
                                 <thead>
                                     <tr>
-                                        <th>Invoice ID</th>
-                                        <th>Client</th>
-                                        <th>Due Date</th>
-                                        <th>Total</th>
-                                        <th>Status</th>
+                                        <th>Army No</th>
+                                        <th>Name</th>
+                                        <th>Return Date</th>
+                                        <th>Total Count</th>
+                                        <th>Rule</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <% @total_on_leave.last(5).each do |tol| %>
                                     <tr>
-                                        <td><a href="invoice-view.html">#INV-0001</a></td>
+                                        <td><a href="invoice-view.html"><%= tol.army_no %></a></td>
                                         <td>
-                                            <h2><a href="#">Hazel Nutt</a></h2>
+                                            <h2><a href="#"><%= tol.user.username %></a></h2>
                                         </td>
-                                        <td>8 Aug 2017</td>
-                                        <td>$380</td>
+                                        <td><%= tol.leave_records.last.to rescue nil %></td>
+                                        <td><%= tol.leave_records.last.total_no_of_days rescue nil %></td>
                                         <td>
-                                            <span class="label label-warning-border">Partially Paid</span>
+                                            <span class=<%= (tol.leave_records.last.type_of_leave == "AL" ? "label-success-border" :  "label-warning-border") rescue "label label-danger-border" %>><%= tol.leave_records.last.type_of_leave rescue nil %></span>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td><a href="invoice-view.html">#INV-0002</a></td>
-                                        <td>
-                                            <h2><a href="#">Paige Turner</a></h2>
-                                        </td>
-                                        <td>17 Sep 2017</td>
-                                        <td>$500</td>
-                                        <td>
-                                            <span class="label label-success-border">Paid</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="invoice-view.html">#INV-0003</a></td>
-                                        <td>
-                                            <h2><a href="#">Ben Dover</a></h2>
-                                        </td>
-                                        <td>30 Nov 2017</td>
-                                        <td>$60</td>
-                                        <td>
-                                            <span class="label label-danger-border">Unpaid</span>
-                                        </td>
-                                    </tr>
+                                    <% end %>
+                                   
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <div class="panel-footer">
-                        <a href="invoices.html" class="text-primary">View all invoices</a>
+                        <a href="/on_leave_index" class="text-primary">View all jawans on leave</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="panel panel-table">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Payments</h3>
+                        <h3 class="panel-title">On Field</h3>
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">	
                             <table class="table table-striped custom-table m-b-0">
                                 <thead>
                                     <tr>
-                                        <th>Invoice ID</th>
-                                        <th>Client</th>
-                                        <th>Payment Type</th>
-                                        <th>Paid Date</th>
-                                        <th>Paid Amount</th>
+                                        <th>Army no</th>
+                                        <th>Name</th>
+                                        <th>From date</th>
+                                        <th>To Date</th>
+                                        <th>Total number of days</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <% @total_on_field.last(5).each do |tof|%>
                                     <tr>
-                                        <td><a href="invoice-view.html">#INV-0004</a></td>
+                                        <td><a href="invoice-view.html"><%= tof.army_no %></a></td>
                                         <td>
-                                            <h2><a href="#">Barry Cuda</a></h2>
+                                            <h2><a href="#"><%= tof.user.username %></a></h2>
                                         </td>
-                                        <td>Paypal</td>
-                                        <td>11 Jun 2017</td>
-                                        <td>$380</td>
+                                        <td><%= tof.posting_records.last.from%></td>
+                                        <td><%= tof.posting_records.last.to%></td>
+                                        <td><%= tof.posting_records.last.total_field_duty_day%></td>
                                     </tr>
-                                    <tr>
-                                        <td><a href="invoice-view.html">#INV-0005</a></td>
-                                        <td>
-                                            <h2><a href="#">Tressa Wexler</a></h2>
-                                        </td>
-                                        <td>Paypal</td>
-                                        <td>21 Jul 2017</td>
-                                        <td>$500</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="invoice-view.html">#INV-0006</a></td>
-                                        <td>
-                                            <h2><a href="#">Ruby Bartlett</a></h2>
-                                        </td>
-                                        <td>Paypal</td>
-                                        <td>28 Aug 2017</td>
-                                        <td>$60</td>
-                                    </tr>
+                                    <% end %>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <div class="panel-footer">
-                        <a href="payments.html" class="text-primary">View all payments</a>
+                        <a href="/on_field_index" class="text-primary">View all jawans on Field duty</a>
                     </div>
                 </div>
             </div>
@@ -195,289 +161,78 @@
                             <table class="table table-striped custom-table m-b-0">
                                 <thead>
                                     <tr>
+                                        <th>Army no</th>
                                         <th style="min-width:200px;">Name</th>
-                                        <th>Email</th>
-                                        <th>Status</th>
-                                        <th class="text-right">Action</th>
+                                        <th>Category</th>
+                                        <th class="text-right">Level</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <% @total_achievements.last(5).each do |ti|%>
                                     <tr>
+                                        <td><%= ti.army_no %></td>
                                         <td style="min-width:200px;">
-                                            <a href="#" class="avatar">B</a>
-                                            <h2><a href="client-profile.html">Barry Cuda <span>CEO</span></a></h2>
+                                            <a href="#" class="avatar"><%= ti.user.username[0] rescue 'X' %></a>
+                                            <h2><a href="client-profile.html"><%= ti.user.username %> <span><%= ti.rank %></span></a></h2>
                                         </td>
-                                        <td>barrycuda@example.com</td>
                                         <td>
                                             <div class="dropdown action-label">
-                                                <a class="btn btn-white btn-sm rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-dot-circle-o text-success"></i> Active <i class="caret"></i>
-                                                </a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li><a href="#"><i class="fa fa-dot-circle-o text-success"></i> Active</a></li>
-                                                    <li><a href="#"><i class="fa fa-dot-circle-o text-danger"></i> Inactive</a></li>
-                                                </ul>
+                                                <%= ti.achievements.last.category %>
                                             </div>
                                         </td>
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li><a href="#" title="Edit"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-                                                    <li><a href="#" title="Delete"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
+                                        <td class="text-left">
+                                            <%= ti.achievements.last.level %>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <a class="avatar">T</a>
-                                            <h2><a href="client-profile.html">Tressa Wexler <span>Manager</span></a></h2>
-                                        </td>
-                                        <td>tressawexler@example.com</td>
-                                        <td>
-                                            <div class="dropdown action-label">
-                                                <a class="btn btn-white btn-sm rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-dot-circle-o text-danger"></i> Inactive <i class="caret"></i>
-                                                </a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li><a href="#"><i class="fa fa-dot-circle-o text-success"></i> Active</a></li>
-                                                    <li><a href="#"><i class="fa fa-dot-circle-o text-danger"></i> Inactive</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li><a href="#" title="Edit"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-                                                    <li><a href="#" title="Delete"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="client-profile.html" class="avatar">R</a>
-                                            <h2><a href="client-profile.html">Ruby Bartlett <span>CEO</span></a></h2>
-                                        </td>
-                                        <td>rubybartlett@example.com</td>
-                                        <td>
-                                            <div class="dropdown action-label">
-                                                <a class="btn btn-white btn-sm rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-dot-circle-o text-danger"></i> Inactive <i class="caret"></i>
-                                                </a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li><a href="#"><i class="fa fa-dot-circle-o text-success"></i> Active</a></li>
-                                                    <li><a href="#"><i class="fa fa-dot-circle-o text-danger"></i> Inactive</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li><a href="#" title="Edit"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-                                                    <li><a href="#" title="Delete"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="client-profile.html" class="avatar">M</a>
-                                            <h2><a href="client-profile.html"> Misty Tison <span>CEO</span></a></h2>
-                                        </td>
-                                        <td>mistytison@example.com</td>
-                                        <td>
-                                            <div class="dropdown action-label">
-                                                <a class="btn btn-white btn-sm rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-dot-circle-o text-success"></i> Active <i class="caret"></i>
-                                                </a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li><a href="#"><i class="fa fa-dot-circle-o text-success"></i> Active</a></li>
-                                                    <li><a href="#"><i class="fa fa-dot-circle-o text-danger"></i> Inactive</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li><a href="#" title="Edit"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-                                                    <li><a href="#" title="Delete"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="client-profile.html" class="avatar">D</a>
-                                            <h2><a href="client-profile.html"> Daniel Deacon <span>CEO</span></a></h2>
-                                        </td>
-                                        <td>danieldeacon@example.com</td>
-                                        <td>
-                                            <div class="dropdown action-label">
-                                                <a class="btn btn-white btn-sm rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-dot-circle-o text-danger"></i> Inactive <i class="caret"></i>
-                                                </a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li><a href="#"><i class="fa fa-dot-circle-o text-success"></i> Active</a></li>
-                                                    <li><a href="#"><i class="fa fa-dot-circle-o text-danger"></i> Inactive</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li><a href="#" title="Edit"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-                                                    <li><a href="#" title="Delete"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <% end %>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <div class="panel-footer">
-                        <a href="clients.html" class="text-primary">View all clients</a>
+                        <a href="/achievements_index" class="text-primary">View all achievements</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="panel panel-table">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Recent Projects</h3>
+                        <h3 class="panel-title">Investments</h3>
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
                             <table class="table table-striped custom-table m-b-0">
                                 <thead>
                                     <tr>
-                                        <th class="col-md-3">Project Name </th>
-                                        <th class="col-md-3">Progress</th>
-                                        <th class="text-right col-md-1">Action</th>
+                                        <th class="col-md-3">Army No </th>
+                                        <th class="col-md-3">Jawan Name </th>
+                                        <th class="col-md-3">Amount Invested</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <h2><a href="project-view.html">Food and Drinks</a></h2>
-                                            <small class="block text-ellipsis">
-                                                <span class="text-xs">1</span> <span class="text-muted">open tasks, </span>
-                                                <span class="text-xs">9</span> <span class="text-muted">tasks completed</span>
-                                            </small>
-                                        </td>
-                                        <td>
-                                            <div class="progress progress-xs progress-striped">
-                                                <div class="progress-bar bg-success" role="progressbar" data-toggle="tooltip" title="65%" style="width: 65%"></div>
-                                            </div>
-                                        </td>
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li><a href="#" title="Edit"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-                                                    <li><a href="#" title="Delete"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h2><a href="project-view.html">School Guru</a></h2>
-                                            <small class="block text-ellipsis">
-                                                <span class="text-xs">2</span> <span class="text-muted">open tasks, </span>
-                                                <span class="text-xs">5</span> <span class="text-muted">tasks completed</span>
-                                            </small>
-                                        </td>
-                                        <td>
-                                            <div class="progress progress-xs progress-striped">
-                                                <div class="progress-bar bg-success" role="progressbar" data-toggle="tooltip" title="15%" style="width: 15%"></div>
-                                            </div>
-                                        </td>
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li><a href="#" title="Edit"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-                                                    <li><a href="#" title="Delete"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h2><a href="project-view.html">Penabook</a></h2>
-                                            <small class="block text-ellipsis">
-                                                <span class="text-xs">3</span> <span class="text-muted">open tasks, </span>
-                                                <span class="text-xs">3</span> <span class="text-muted">tasks completed</span>
-                                            </small>
-                                        </td>
-                                        <td>
-                                            <div class="progress progress-xs progress-striped">
-                                                <div class="progress-bar bg-success" role="progressbar" data-toggle="tooltip" title="49%" style="width: 49%"></div>
-                                            </div>
-                                        </td>
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li><a href="#" title="Edit"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-                                                    <li><a href="#" title="Delete"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h2><a href="project-view.html">Harvey Clinic</a></h2>
-                                            <small class="block text-ellipsis">
-                                                <span class="text-xs">12</span> <span class="text-muted">open tasks, </span>
-                                                <span class="text-xs">4</span> <span class="text-muted">tasks completed</span>
-                                            </small>
-                                        </td>
-                                        <td>
-                                            <div class="progress progress-xs progress-striped">
-                                                <div class="progress-bar bg-success" role="progressbar" data-toggle="tooltip" title="88%" style="width: 88%"></div>
-                                            </div>
-                                        </td>
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li><a href="#" title="Edit"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-                                                    <li><a href="#" title="Delete"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h2><a href="project-view.html">The Gigs</a></h2>
-                                            <small class="block text-ellipsis">
-                                                <span class="text-xs">7</span> <span class="text-muted">open tasks, </span>
-                                                <span class="text-xs">14</span> <span class="text-muted">tasks completed</span>
-                                            </small>
-                                        </td>
-                                        <td>
-                                            <div class="progress progress-xs progress-striped">
-                                                <div class="progress-bar bg-success" role="progressbar" data-toggle="tooltip" title="100%" style="width: 100%"></div>
-                                            </div>
-                                        </td>
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li><a href="#" title="Edit"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-                                                    <li><a href="#" title="Delete"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <% @total_investments.last(5).each do |ti| %>
+                                        <% if !ti.nil? %>
+                                        <tr>
+                                            <td>
+                                                <h2><a href="project-view.html"></a><%= ti.army_no %></a></h2>
+                                                <small class="block text-ellipsis">
+                                                    <span class="text-xs"><%= ti.investments.size %></span> <span class="text-muted">Investments, </span>
+                                                    <span class="text-xs"><%= ti.loans.size %></span> <span class="text-muted">Loan</span>
+                                                </small>
+                                            </td>
+                                            <td><%= ti.user.username %></td>
+                                            <td>
+                                                <%= ti.investments.map(&:amount).reduce(&:+)%>
+                                            </td>
+                                        </tr>
+                                        <% end %>
+                                    <% end %>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <div class="panel-footer">
-                        <a href="projects.html" class="text-primary">View all projects</a>
+                        <a href="/investments_index" class="text-primary">View all investments</a>
                     </div>
                 </div>
             </div>
@@ -693,3 +448,53 @@
         </div>
     </div>			
 </div>
+<script>
+    $(document).ready(function() {
+	
+	// Area Chart
+    Morris.Bar({
+		element: 'area-charts',
+		data: gon.data,
+		xkey: 'y',
+		ykeys: 'a',
+		labels: ['Total Count', 'Language'],
+		lineColors: ['#00c5fb','#0253cc'],
+		lineWidth: '3px',
+		resize: true,
+		redraw: true
+    });
+
+	// Bar Chart
+	Morris.Bar({
+		element: 'bar-charts',
+		data: gon.trade_data,
+		xkey: 'y',
+		ykeys: 'a',
+		labels: ['Total Count', 'Trade'],
+		lineColors: ['#00c5fb','#0253cc'],
+		lineWidth: '3px',
+		barColors: ['#00c5fb','#0253cc'],
+		resize: true,
+		redraw: true
+	});
+	
+	// Line Chart
+	
+	Morris.Donut({
+		element: 'line-charts',
+		data: gon.state_data,
+		resize: true,
+		redraw: true
+	});
+	
+	// Donut Chart
+		
+	Morris.Donut({
+		element: 'pie-charts',
+		data: gon.sport_data,
+		resize: true,
+		redraw: true
+	});
+		
+  });
+</script>

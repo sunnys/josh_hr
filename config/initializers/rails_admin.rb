@@ -148,4 +148,12 @@ RailsAdmin.config do |config|
   config.model 'Desertion' do
     visible false
   end
+
+  config.model 'RulePeriod' do
+    visible false
+  end
+
+  config.model 'PostingRecord' do
+    visible false
+  end
 end

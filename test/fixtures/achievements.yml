@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  personel_detail_id: 1
+  category: MyString
+  title: MyString
+  description: MyText
+  level: MyString
+
+two:
+  personel_detail_id: 1
+  category: MyString
+  title: MyString
+  description: MyText
+  level: MyString

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_26_130835) do
+ActiveRecord::Schema.define(version: 2019_03_28_110356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 2019_03_26_130835) do
     t.date "date"
     t.string "nature_of_casualty"
     t.string "professional_detail_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "achievements", force: :cascade do |t|
+    t.integer "personel_detail_id"
+    t.string "category"
+    t.string "title"
+    t.text "description"
+    t.string "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -93,6 +103,13 @@ ActiveRecord::Schema.define(version: 2019_03_26_130835) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "hierarchies", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "ro_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "home_addresses", force: :cascade do |t|
     t.integer "personel_detail_id"
     t.integer "house_no"
@@ -139,7 +156,7 @@ ActiveRecord::Schema.define(version: 2019_03_26_130835) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "leaves", force: :cascade do |t|
+  create_table "leave_records", force: :cascade do |t|
     t.string "type_of_leave"
     t.datetime "from"
     t.datetime "to"
@@ -157,6 +174,13 @@ ActiveRecord::Schema.define(version: 2019_03_26_130835) do
     t.integer "duration"
     t.date "loan_sanction_date"
     t.integer "personel_detail_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "master_rules", force: :cascade do |t|
+    t.string "rule"
+    t.integer "period"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -204,6 +228,19 @@ ActiveRecord::Schema.define(version: 2019_03_26_130835) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "trade"
+  end
+
+  create_table "posting_records", force: :cascade do |t|
+    t.date "from"
+    t.date "to"
+    t.boolean "peace_duty"
+    t.boolean "field_dduty"
+    t.integer "total_peace_duty_day"
+    t.integer "total_field_duty_day"
+    t.integer "professional_detail_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "professional_details", force: :cascade do |t|
@@ -216,6 +253,10 @@ ActiveRecord::Schema.define(version: 2019_03_26_130835) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "discharge_due_date"
+    t.boolean "on_leave_currently"
+    t.boolean "on_field_currently"
+    t.string "reporting_officer_army_no"
   end
 
   create_table "professional_training_and_courses", force: :cascade do |t|
@@ -246,6 +287,19 @@ ActiveRecord::Schema.define(version: 2019_03_26_130835) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "rule_periods", force: :cascade do |t|
+    t.date "from"
+    t.date "to"
+    t.string "rule"
+    t.boolean "embodied"
+    t.boolean "disembodied"
+    t.integer "total_embodied_day"
+    t.integer "total_disembodied_day"
+    t.integer "professional_detail_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "services", force: :cascade do |t|
     t.string "type", null: false
     t.string "rank"
@@ -255,6 +309,8 @@ ActiveRecord::Schema.define(version: 2019_03_26_130835) do
     t.integer "professional_detail_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "permanent_i_card_no"
+    t.string "temp_i_card_no"
   end
 
   create_table "sports", force: :cascade do |t|
@@ -289,6 +345,11 @@ ActiveRecord::Schema.define(version: 2019_03_26_130835) do
     t.datetime "updated_at", null: false
     t.string "army_no"
     t.string "username"
+    t.integer "sign_in_count", default: 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.index ["army_no"], name: "index_users_on_army_no"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

@@ -1,0 +1,44 @@
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title">Jawans on leave</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                     <table class="table table-striped custom-table m-b-0">
+                        <thead>
+                            <tr>
+                                <th class="col-md-3">Army No </th>
+                                <th class="col-md-3">Jawan Name </th>
+                                <th class="col-md-3">Amount Invested</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @total_investments.each do |ti| %>
+                                <% if !ti.nil? %>
+                                <tr>
+                                    <td>
+                                        <h2><a href="project-view.html"></a><%= ti.army_no %></a></h2>
+                                        <small class="block text-ellipsis">
+                                            <span class="text-xs"><%= ti.investments.size %></span> <span class="text-muted">Investments, </span>
+                                            <span class="text-xs"><%= ti.loans.size %></span> <span class="text-muted">Loan</span>
+                                        </small>
+                                    </td>
+                                    <td><%= ti.user.username %></td>
+                                    <td>
+                                        <%= ti.investments.map(&:amount).reduce(&:+)%>
+                                    </td>
+                                </tr>
+                                <% end %>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

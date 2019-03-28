@@ -4,7 +4,7 @@
     <title>JoshHr</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= include_gon %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -14,7 +14,7 @@
     <p class="alert"><%= alert %></p>
     <div class="main-wrapper">
       <%= render :partial =>"/layouts/top_panel"%>
-      <%= render :partial =>"/layouts/side_panel"%>
+      <%#= render :partial =>"/layouts/side_panel"%>
       <%= yield %>
     </div>
     <div class="sidebar-overlay" data-reff="#sidebar"></div>

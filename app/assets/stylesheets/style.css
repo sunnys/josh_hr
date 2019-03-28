@@ -698,7 +698,7 @@ table.dataTable {
 	background: -webkit-linear-gradient(left, #00c5fb 0%, #0253cc 100%);
 	background: -o-linear-gradient(left, #00c5fb 0%, #0253cc 100%);
 	background: -ms-linear-gradient(left, #00c5fb 0%, #0253cc 100%);
-	background: linear-gradient(to right, #00c5fb 0%, #0253cc 100%);
+	background: linear-gradient(to right, #66bb6a 0%, #388e3c 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c5fb', endColorstr='#0253cc', GradientType=1);
 	left: 0;
 	position: fixed;
@@ -1044,7 +1044,7 @@ table.dataTable {
 
 .page-wrapper {
 	left: 0;
-	margin-left: 230px;
+	/* margin-left: 230px; */
 	padding-top: 60px;
 	position: relative;
 	transition: all 0.2s ease-in-out;

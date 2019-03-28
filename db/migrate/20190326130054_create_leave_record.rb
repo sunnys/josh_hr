@@ -1,6 +1,6 @@
-class CreateLeaves < ActiveRecord::Migration[5.2]
+class CreateLeaveRecord < ActiveRecord::Migration[5.2]
   def change
-    create_table :leaves do |t|
+    create_table :leave_records do |t|
       t.string :type_of_leave
       t.datetime :from
       t.datetime :to

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from: 2019-03-28
+  to: 2019-03-28
+  peace_duty: false
+  field_dduty: false
+  total_peace_duty_day: 1
+  total_field_duty_day: 1
+  profession_detail_id: 1
+
+two:
+  from: 2019-03-28
+  to: 2019-03-28
+  peace_duty: false
+  field_dduty: false
+  total_peace_duty_day: 1
+  total_field_duty_day: 1
+  profession_detail_id: 1

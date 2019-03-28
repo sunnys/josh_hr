@@ -1,0 +1,2 @@
+class MasterRule < ApplicationRecord
+end

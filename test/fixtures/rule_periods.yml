@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from: 2019-03-28
+  to: 2019-03-28
+  embodied: false
+  disembodied: false
+  total_embodied_day: 1
+  total_disembodied_day: 1
+  profession_detail_id: 1
+
+two:
+  from: 2019-03-28
+  to: 2019-03-28
+  embodied: false
+  disembodied: false
+  total_embodied_day: 1
+  total_disembodied_day: 1
+  profession_detail_id: 1

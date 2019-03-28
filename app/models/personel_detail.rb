@@ -8,6 +8,7 @@ class PersonelDetail < ApplicationRecord
     has_many :loans, dependent: :destroy
     has_many :educations, dependent: :destroy
     has_many :sports, dependent: :destroy
+    has_many :achievements, dependent: :destroy
     has_many :professional_training_and_courses, dependent: :destroy
 
     accepts_nested_attributes_for :home_address
@@ -18,6 +19,7 @@ class PersonelDetail < ApplicationRecord
     accepts_nested_attributes_for :loans
     accepts_nested_attributes_for :educations
     accepts_nested_attributes_for :sports
+    accepts_nested_attributes_for :achievements
     accepts_nested_attributes_for :professional_training_and_courses
 
     mount_uploader :photo, PhotoUploader
