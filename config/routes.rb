@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get '/on_field_index' => "homes#on_field_index"
   get '/investments_index' => "homes#investments_index"
   get '/achievements_index' => "homes#achievements_index"
-  root to: "homes#index"
+
+  get '/dashboard' => "homes#index"
+  root to: "homes#landing"
   
 end
