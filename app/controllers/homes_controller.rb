@@ -4,6 +4,7 @@ class HomesController < ApplicationController
   # GET /homes.json
   def landing_page
     @news = BlogPost.all
+    @main_page_images = MainPageImage.all
     render layout: false
   end
 
