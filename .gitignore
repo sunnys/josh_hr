@@ -60,3 +60,4 @@ pickle-email-*.html
 /public/static/*
 /public/www/*
 /uploads
+/db/*.dump

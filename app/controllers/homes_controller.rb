@@ -3,6 +3,7 @@ class HomesController < ApplicationController
   # GET /homes
   # GET /homes.json
   def landing_page
+    @news = BlogPost.all
     render layout: false
   end
 

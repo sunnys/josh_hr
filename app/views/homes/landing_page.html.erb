@@ -102,8 +102,10 @@ $(window).load(function() {
     </header>
     <article class="slider">
         <div class="camera_wrap">
-            <div data-src="/landing_page/img/picture1.jpg"><div class="camera-caption fadeIn"><p class="title">The country is strong with a strong army</p><p class="descrip">Lorem ipsum dolor sit amet, consectetuer adipiscing eli praesent luptatum</p><a href="index.html#" class="btn-default btn2">More info</a></div></div>
-            <div data-src="/landing_page/img/picture2.jpg"><div class="camera-caption fadeIn"><p class="title">The country is strong with a strong army</p><p class="descrip">Lorem ipsum dolor sit amet, consectetuer adipiscing eli praesent luptatum</p><a href="index.html#" class="btn-default btn2">More info</a></div></div>
+            <div data-src="/landing_page/img/picture1.jpg">
+                <div class="camera-caption fadeIn">
+                    <p class="title">Vigilance and Valour</p><p class="descrip"></p></div></div>
+            <div data-src="/landing_page/img/p1.jpeg"><div class="camera-caption fadeIn"><p class="title">सावधानी व शूरता</p><p class="descrip"></p></div></div>
         </div>
     </article>
     <div class="global">
@@ -114,28 +116,24 @@ $(window).load(function() {
                         <figure><a href="index.html#"><img src="/landing_page/img/page1_pic1.png" alt=""></a></figure>
                         <div class="caption">
                             <p class="title">Infantry</p>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit</p>
                         </div>
                     </article>
                     <article class="col-lg-3 col-md-3 col-sm-6 col-xs-6 maxheight">
                         <figure><a href="index.html#"><img src="/landing_page/img/page1_pic2.png" alt=""></a></figure>
                         <div class="caption">
-                            <p class="title">Aviation</p>
-                            <p>Wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit</p>
+                            <p class="title">Ecological battalions</p>
                         </div>
                     </article>
                     <article class="col-lg-3 col-md-3 col-sm-6 col-xs-6 maxheight">
                         <figure><a href="index.html#"><img src="/landing_page/img/page1_pic3.png" alt=""></a></figure>
                         <div class="caption">
                             <p class="title">Landing</p>
-                            <p>Ad minim veniam, quis nostrud exerci tation ullamcorper suscipit</p>
                         </div>
                     </article>
                     <article class="col-lg-3 col-md-3 col-sm-6 col-xs-6 maxheight">
                         <figure><a href="index.html#"><img src="/landing_page/img/page1_pic4.png" alt=""></a></figure>
                         <div class="caption">
                             <p class="title">Navy</p>
-                            <p>Veniam, quis nostrud exerci tation lobortis nisl ut aliquip ex ea commodo</p>
                         </div>
                     </article>
                 </section>
@@ -241,70 +239,20 @@ $(window).load(function() {
         </section>
         <div class="container">
             <div class="row">
-                <article class="col-lg-3 col-md-6 col-sm-6 col-xs-6 banner-box">
-                    <div>
-                        <figure><img src="/landing_page/img/page1_pic1.jpg" alt=""></figure>
-                        <div class="caption">
-                            <div class="badge">12<br>10</div>
-                            <p class="title1">Typi non habent claritatem</p>
-                            <p class="title2">Qel eumantry</p>
-                            <p>Enim ad minim veniam, qum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et</p>
+                 <% @news.each do |n| %>
+                    <article class="col-lg-3 col-md-6 col-sm-6 col-xs-6 banner-box">
+                        <div>
+                            <figure><img src="/landing_page/img/page1_pic1.jpg" alt=""></figure>
+                            <div class="caption">
+                                <div class="badge">12<br>10</div>
+                                <p class="title2"><%= n.caption %></p>
+                                <p><%= n.description %></p>
+                            </div>
                         </div>
-                    </div>
-                </article>
-                <article class="col-lg-3 col-md-6 col-sm-6 col-xs-6 banner-box">
-                    <div>
-                        <figure><img src="/landing_page/img/page1_pic2.jpg" alt=""></figure>
-                        <div class="caption">
-                            <div class="badge">23<br>11</div>
-                            <p class="title1">Ut wisi enim ad minim veni</p>
-                            <p class="title2">Eodem modo</p>
-                            <p>Qum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim</p>
-                        </div>
-                    </div>
-                </article>
-                <article class="col-lg-3 col-md-6 col-sm-6 col-xs-6 banner-box">
-                    <div>
-                        <figure><img src="/landing_page/img/page1_pic3.jpg" alt=""></figure>
-                        <div class="caption">
-                            <div class="badge">5<br>12</div>
-                            <p class="title1">Nam liber tempor cum soluta</p>
-                            <p class="title2">Feugait nulla</p>
-                            <p>Veniam, qum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio</p>
-                        </div>
-                    </div>
-                </article>
-                <article class="col-lg-3 col-md-6 col-sm-6 col-xs-6 banner-box">
-                    <div>
-                        <figure><img src="/landing_page/img/page1_pic4.jpg" alt=""></figure>
-                        <div class="caption">
-                            <div class="badge">17<br>12</div>
-                            <p class="title1">Claritas est etiam processu</p>
-                            <p class="title2">Lorem ipsum</p>
-                            <p>Ad minim veniam, qum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et</p>
-                        </div>
-                    </div>
-                </article>
+                    </article>
+                <% end %>
             </div>
         </div>
-        <section class="newsletterBox">
-            <div class="container">
-                <div class="row">
-                    <article class="col-lg-12 col-md-12 col-sm-12">
-                        <h2>Newsletter</h2>
-                        <p>Sign up to our newsletter to receive <br>the latest news and events</p>
-                        <form id="newsletter" accept-charset="utf-8">
-        					<div class="success">Your subscribe request has been sent!</div>
-        				    <label class="email">
-        				    	<input type="email" class="form-control" value="E-mail">
-        				    	<span class="error">*This is not a valid email address.</span>
-        				    </label>
-                            <a href="index.html#" data-type="submit" class="btn-default btn3">Submit</a>
-        				</form>
-                    </article>
-                </div>
-            </div>
-        </section>
     </div>
 </div>
 <!--footer-->
@@ -312,7 +260,7 @@ $(window).load(function() {
     <div class="container">
         <div class="row">
             <article class="col-lg-12 col-md-12 col-sm-12">
-                <figure><img src="/landing_page/img/foo_logo.png" alt=""></figure>
+                <figure><img src="/landing_page/img/foo_logo.jpeg" style="width:20%" alt=""></figure>
                 <p>&copy; <em id="copyright-year"></em> | <a href="index-6.html">Privacy Policy</a></p>
             </article>
         </div>
