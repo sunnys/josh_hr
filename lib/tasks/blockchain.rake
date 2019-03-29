@@ -3,7 +3,7 @@ namespace :blockchain do
     task :dump => :environment do
       cmd = nil
       with_config do |app, host, db, user, password|
-        cmd = "PGPASSWORD=#{password} pg_dump --host #{host} --username #{user} --verbose --clean --no-owner --no-acl --format=c #{db} > #{Rails.root}/db/#{app}.dump"
+        cmd = "PGPASSWORD=#{password} pg_dump --host #{host} --username #{user} --verbose --clean --no-owner --no-acl --format=c #{db} > #{Rails.root}/db/#{app}-#{Date.today.to_s}.dump"
       end
       puts cmd
       exec cmd
@@ -21,10 +21,24 @@ namespace :blockchain do
     #   exec cmd
     # end
   
-    task :update_block => :environment do
-        Rake::Task["blockchain:dump"].invoke
-        start_transaction
+    task :start_transaction => :environment do
+      file = File.open("#{Rails.root}/db/josh_hr-#{Date.today.to_s}.dump")
+      url = "/api/v1/blocks"
+      prev_hash = analytic_get(url)["entries"].first["hash"]
+      pem = File.read("#{Dir.home}/.ssh/id_rsa")
+      main_params = create_block(prev_hash, file, pem)
+      res = send_block(url, main_params)
+      p res
+      res
     end
+
+    task :update_block => :environment do
+      Rake::Task["blockchain:dump"].invoke
+      Rake::Task["blockchain:start_transaction"].invoke
+    end
+
+
+    
 
   private
   
@@ -36,19 +50,8 @@ namespace :blockchain do
         ActiveRecord::Base.connection_config[:password]
     end
 
-    def start_transaction
-      file = File.open("#{Rails.root}/db/josh_hr.dump")
-      url = "/api/v1/blocks"
-      prev_hash = analytic_get(url)["entries"].first["hash"]
-      pem = File.read('~/.ssh/id_rsa')
-      main_params = create_block(prev_hash, file, pem)
-      res = send_block(url, main_params)
-      res
-    end
-
     def create_block(prev_hash, file, pem)
         data = file.read()
-        
         fileKey   = generate_key()
         encrypted = encrypt(data, fileKey)
         block = {
