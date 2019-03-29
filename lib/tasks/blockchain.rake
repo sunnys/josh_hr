@@ -1,4 +1,4 @@
-namespace :db do
+namespace :blockchain do
     desc "Dumps the database to db/APP_NAME.dump"
     task :dump => :environment do
       cmd = nil
@@ -9,24 +9,24 @@ namespace :db do
       exec cmd
     end
   
-    desc "Restores the database dump at db/APP_NAME.dump."
-    task :restore => :environment do
-      cmd = nil
-      with_config do |app, host, db, user|
-        cmd = "pg_restore --verbose --host #{host} --username #{user} --clean --no-owner --no-acl --dbname #{db} #{Rails.root}/db/#{app}.dump"
-      end
-      Rake::Task["db:drop"].invoke
-      Rake::Task["db:create"].invoke
-      puts cmd
-      exec cmd
-    end
+    # desc "Restores the database dump at db/APP_NAME.dump."
+    # task :restore => :environment do
+    #   cmd = nil
+    #   with_config do |app, host, db, user|
+    #     cmd = "pg_restore --verbose --host #{host} --username #{user} --clean --no-owner --no-acl --dbname #{db} #{Rails.root}/db/#{app}.dump"
+    #   end
+    #   Rake::Task["db:drop"].invoke
+    #   Rake::Task["db:create"].invoke
+    #   puts cmd
+    #   exec cmd
+    # end
   
     task :update_block => :environment do
-        Rake::Task["db:dump"].invoke
-        key = ActiveSupport::EncryptedFile.generate_key
-
+        Rake::Task["blockchain:dump"].invoke
+        start_transaction
     end
-    private
+
+  private
   
     def with_config
       yield Rails.application.class.parent_name.underscore,
@@ -36,9 +36,19 @@ namespace :db do
         ActiveRecord::Base.connection_config[:password]
     end
 
-    def create_block(prev_hash, file)
+    def start_transaction
+      file = File.open("#{Rails.root}/db/josh_hr.dump")
+      url = "/api/v1/blocks"
+      prev_hash = analytic_get(url)["entries"].first["hash"]
+      pem = File.read('~/.ssh/id_rsa')
+      main_params = create_block(prev_hash, file, pem)
+      res = send_block(url, main_params)
+      res
+    end
+
+    def create_block(prev_hash, file, pem)
         data = file.read()
-        pem = File.read('/home/sunny/.ssh/id_rsa')
+        
         fileKey   = generate_key()
         encrypted = encrypt(data, fileKey)
         block = {
@@ -53,10 +63,18 @@ namespace :db do
                 file_key:  encrypt(pem, fileKey)
             }
         }
-        signed = sign(block, pem);
-        hashed = sha256(Base64.strict_encode64(signed.to_json));
-        block[:hash] = hashed
-        {block: block, data: encrypted};
+        signed = sign(block, pem)
+        encoded = {}
+        encoded[:creator] = signed[:creator]
+        encoded[:signature] = signed[:signature]
+        encoded[:data] = signed[:data]
+        encoded[:type] = signed[:type]
+        encoded[:prev] = signed[:prev]
+        encoded[:timestamp] = signed[:timestamp]
+        encoded = encoded.as_json.to_json
+        hashed = sha256(encoded)
+        block[:hash] = hashed.upcase
+        {block: block, data: encrypted}
     end
   
     def generate_key
@@ -74,7 +92,7 @@ namespace :db do
         iv = Base64.decode64(final_key).last(16)
         cipher.key = key
         cipher.iv = iv
-        encrypted = Base64.encode64(cipher.update(data) + cipher.final())
+        encrypted = Base64.strict_encode64(cipher.update(data) + cipher.final())
         encrypted
     end
 
@@ -111,9 +129,20 @@ namespace :db do
         end
     end
 
-    file = File.open('/home/sunny/blockchain/josh_hr/db/josh_hr.dump')
-    main_params = create_block("B1CDA52E775A5B8900CD3115A8ADF15BFFDE5851A4D0A24120708794BCB5BC98", file)
-    url = "/api/v1/blocks"
-    res = send_block(url, main_params)
-    res
+    def analytic_get(param_url)
+      require 'net/http'
+      new_analitics_api_domain = Rails.application.config.new_analytics_domain
+      url = param_url
+      if !new_analitics_api_domain.nil? and !url.nil?
+        url = URI::parse(new_analitics_api_domain + param_url)
+        req = Net::HTTP::Get.new(url.to_s)
+        res = Net::HTTP.start(url.host, url.port) {|http|
+        http.request(req)
+        }
+        JSON.parse(res.body) rescue {}
+      else
+        {}
+      end
+    end
+
 end
