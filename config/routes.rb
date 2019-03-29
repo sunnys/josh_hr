@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   get '/achievements_index' => "homes#achievements_index"
 
   get '/dashboard' => "homes#index"
-  root to: "homes#landing"
+  root to: "homes#landing_page"
   
 end
