@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   resources :units
   resources :homes
   resources :profiles, only: [:index, :show] do
+    member do
+      get '/embodiment_report' => 'profiles#embodiment_report'
+      get '/embodiment_report_pdf' => 'profiles#embodiment_report', as: :embodiment_pdf_report
+    end
   end
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

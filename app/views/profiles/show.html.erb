@@ -26,7 +26,7 @@
                                         <h3 class="user-name m-t-0 m-b-0"><%= @user.username%></h3>
                                         <small class="text-muted"><%= @user.personel_detail.rank%></small>
                                         <div class="staff-id">Army No : <%= @user.army_no %></div>
-                                        <div class="staff-msg"><a href="chat.html" class="btn btn-primary">Print Emodiment Report</a></div>
+                                        <div class="staff-msg"><a href="/profiles/<%= @user.id %>/embodiment_report" class="btn btn-primary">Print Emodiment Report</a></div>
                                     </div>
                                 </div>
                                 <div class="col-md-7">
