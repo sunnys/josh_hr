@@ -64,6 +64,19 @@ def add_disembodiment(professional_detail, rule_name, days)
 end
 
 def create_personals
+    investment_types = ['LIC', 'MF', 'OR']
+    loan_types = ['Housing', 'Personal', 'Vehicle']
+    sports = ['basketball','Tennis - List of sports','tennis','badminton','bowling','cricket','curling','dodgeball','football','golf','handball','hockey','horseball','hurling','ice hockey','kickball','lacrosse','paddle','polo']
+    sport_level = ['District', 'State', 'National', 'International']
+    ranks = ['2IC', 'ADJT', 'QM', 'COY CDr', 'SM', 'SA', 'SQM', 'JQM', 'Head CIK', 'Sig JCo', 'MT JCo', 'RT JCo', 'BHM', 'MESS HAV', 'CQMH', 'CHM', 'Kote NCo', 'Mag NCo', 'INT HAV', 'RP HAV']
+    trade = ['GD','CLK', 'Cook Unit', 'Black Smith', 'Carpenter', 'Tailer', 'EBR', 'Safaiwala','Mess Cook', 'Masalachi', 'Barber', 'Washer Man', 'Mess Waiter', 'C&J', 'DPMT', 'WELDER', 'Electrician', 'E FTR', 'P&D', 'SVY FD', 'SVY', 'MSN', 'M SMITH', 'RADIO OPP', 'CHEF', 'STEWARD', 'HOUSE KEEPER', 'SKT']
+
+    achievement_categories = ['Sport', 'Singing', 'Dancing', 'Musician', 'Cook', 'Others']
+    achievement_level = ['District', 'State', 'National', 'International']
+    type_of_leave = ['AL', 'CL']
+    religion = ['Hindu', 'Muslim', 'Sikh', 'Christian', 'Budhdhism', 'Jain']
+    mothertongue = ['Hindi', 'Marathi', 'Punjabi', 'Gujrati', 'Bengali']
+
     army_no = Random.rand(10000000..99999999).to_s + ((65 + rand(26)).chr).to_s
     name = FFaker::Name.name
     father_name = FFaker::Name.name
@@ -220,6 +233,8 @@ def update_posting(u)
 end
 
 def update_achievement(u)
+    achievement_categories = ['Sport', 'Singing', 'Dancing', 'Musician', 'Cook', 'Others']
+    achievement_level = ['District', 'State', 'National', 'International']
     pd = u.professional_detail
     achiever = [true, false].sample
     if achiever
