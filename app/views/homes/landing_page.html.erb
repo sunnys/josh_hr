@@ -157,17 +157,50 @@ $(window).load(function() {
         </section>
         <div class="container">
             <div class="row">
-                 <% @news.each do |n| %>
-                    <article class="col-lg-3 col-md-6 col-sm-6 col-xs-6 banner-box">
+                <% if @news.present? %>
+                    <% @news.each do |n| %>
+                        <article class="col-lg-3 col-md-6 col-sm-6 col-xs-6 banner-box">
+                            <div>
+                                <figure><img src="<%= n.photo.url %>" alt=""></figure>
+                                <div class="caption">
+                                    <div class="badge">12<br>10</div>
+                                    <p class="title2"><%= n.caption %></p>
+                                    <p><%= n.description %></p>
+                                </div>
+                            </div>
+                        </article>
+                    <% end %>
+                <% else %>
+                    <article class="col-lg-4 col-md-4 col-sm-6 col-xs-6 banner-box">
                         <div>
-                            <figure><img src="/landing_page/img/page1_pic1.jpg" alt=""></figure>
+                            <figure><img src="/landing_page/img/ta_day.jpg" alt=""></figure>
                             <div class="caption">
-                                <div class="badge">12<br>10</div>
-                                <p class="title2"><%= n.caption %></p>
-                                <p><%= n.description %></p>
+                                <div class="badge">09<br>10</div>
+                                <p class="title2">TERRITORIAL ARMY CELEBRATES 68TH RAISING DAY</p>
+                                <p>Territorial Army celebrated its 68th Raising Day on 09 Oct 2017. As per tradition, the TA fraternity led by ADG TA, Major General DA Chaturvedi, called on His Excellency, the President of India and payed their respect to the supreme Commander of the Armed Forces. The Hon’ble President also interacted with the NOKs of Martyrs of TA. In the run-up to the raising day several events were organised across the country.</p>
                             </div>
                         </div>
-                    </article>
+                    </article>   
+                    <article class="col-lg-4 col-md-4 col-sm-6 col-xs-6 banner-box">
+                        <div>
+                            <figure><img src="/landing_page/img/ta_data_m.jpg" alt=""></figure>
+                            <div class="caption">
+                                <div class="badge">02<br>10</div>
+                                <p class="title2">TA Half Marathon organised on October 02, 2017</p>
+                                <p>In Delhi Territorial Army organised a half marathon on Oct 02, 2017 in the true spirit of Citizens’ Army and also to promote healthy life style. The event comprised 5 Km, 10 Km and 21 Km run and was flagged off from Carriapa Parade Ground, Delhi Cantt by Lieutenant General AK Bhatt, AVSM, SM, VSM, DGMO and Lt Col (Hony) Kapil Dev.</p>
+                            </div>
+                        </div>
+                    </article>   
+                    <article class="col-lg-4 col-md-4 col-sm-6 col-xs-6 banner-box">
+                        <div>
+                            <figure><img src="/landing_page/img/ta_day_s.jpg" alt=""></figure>
+                            <div class="caption">
+                                <div class="badge">08<br>10</div>
+                                <p class="title2">TA Symphony Band performs at India Gate on October 08, 2017</p>
+                                <p>The highlight of the event was voluntary participation in the event by more than three thousand Defence personnel, their families and children. The spectacular event culminated with distribution of medallion to all those who took part and completed 21 km and 10 km run, as token of appreciation and motivation. </p>
+                            </div>
+                        </div>
+                    </article>   
                 <% end %>
             </div>
         </div>
