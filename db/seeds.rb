@@ -237,14 +237,16 @@ def generate_hierarchy
     record_with_lower_ranks = PersonelDetail.where.not(rank: higher_ranks.map(&:name))
 end
 # begin
-# 100.times do 
-#     u = create_personals()
-#     update_leave_records(u)
-#     update_posting(u)
-#     update_achievement(u)
-# end
+100.times do 
+    u = create_personals()
+    update_leave_records(u)
+    update_posting(u)
+    update_achievement(u)
+end
 
-
+u = User.create!(email: "admin@example.com", password: "password", password_confirmation: "password", username: "Admin", army_no: "AAA777")
+PersonelDetail.create!(user_id: u.id)
+ProfessionalTrainingAndCourse.create!(user_id: u.id)
 # rescue Exception => ex
 #     p ex.message
 # end
