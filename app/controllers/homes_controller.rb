@@ -38,7 +38,7 @@ class HomesController < ApplicationController
     @total_on_leave = @users.map(&:professional_detail).select{|i| i.leave_records.present?}
     @total_on_field = @users.map(&:professional_detail).select{|i| i.on_field_currently}
     @total_on_peace = (@total_jawans - @total_on_leave.count - @total_on_field.count)
-    @total_investments = @users.map(&:personel_detail).select{|i| !i.investments.present?}
+    @total_investments = @users.map(&:personel_detail).select{|i| !i.investments.present?} +  @users.map(&:personel_detail).select{|i| i.loans.present?}
     @total_achievements = @users.map(&:personel_detail).select{|i| !i.achievements.blank?}
     
     @no_courses = @users.map(&:professional_detail).select{|i| i.local_course.nil? and i.army_course.nil?}

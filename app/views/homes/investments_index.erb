@@ -2,7 +2,7 @@
     <div class="content container-fluid">
         <div class="row">
             <div class="col-sm-8">
-                <h4 class="page-title">Jawans on leave</h4>
+                <h4 class="page-title">JCO's/OR Financials</h4>
             </div>
         </div>
 
@@ -13,7 +13,8 @@
                         <thead>
                             <tr>
                                 <th class="col-md-3">Army No </th>
-                                <th class="col-md-3">Jawan Name </th>
+                                <th class="col-md-3">Name </th>
+                                <th class="col-md-3">Loans Taken </th>
                                 <th class="col-md-3">Amount Invested</th>
                             </tr>
                         </thead>
@@ -29,6 +30,7 @@
                                         </small>
                                     </td>
                                     <td><%= ti.user.username %></td>
+                                    <td><%= ti.loans.map(&:amount).reduce(&:+) %></td>
                                     <td>
                                         <%= ti.investments.map(&:amount).reduce(&:+)%>
                                     </td>

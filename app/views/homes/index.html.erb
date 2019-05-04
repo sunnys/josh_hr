@@ -206,8 +206,9 @@
                                 <thead>
                                     <tr>
                                         <th class="col-md-3">Army No </th>
-                                        <th class="col-md-3">Jawan Name </th>
-                                        <th class="col-md-3">Amount Invested</th>
+                                        <th class="col-md-3">Name </th>
+                                        <th class="col-md-3">Investment</th>
+                                        <th class="col-md-3">Loan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -224,6 +225,9 @@
                                             <td><%= ti.user.username %></td>
                                             <td>
                                                 <%= ti.investments.map(&:amount).reduce(&:+)%>
+                                            </td>
+                                            <td>
+                                                <%= ti.loans.map(&:amount).reduce(&:+)%>
                                             </td>
                                         </tr>
                                         <% end %>
