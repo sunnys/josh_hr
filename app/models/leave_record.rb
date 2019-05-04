@@ -20,7 +20,7 @@ class LeaveRecord < ApplicationRecord
                     ProfessionalDetail.all.collect {|p| [p.user.army_no, p.id]}
                 end
             end
-            field :returned_on_date
+            field :not_returned_on_date
         end
 
         edit do 
@@ -38,7 +38,7 @@ class LeaveRecord < ApplicationRecord
                     ProfessionalDetail.all.collect {|p| [p.user.army_no, p.id]}
                 end
             end
-            field :returned_on_date
+            field :not_returned_on_date
         end
     end
 end
