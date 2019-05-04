@@ -135,9 +135,9 @@
                                         <td>
                                             <h2><a href="#"><%= tof.user.username %></a></h2>
                                         </td>
-                                        <td><%= tof.posting_records.last.from%></td>
-                                        <td><%= tof.posting_records.last.to%></td>
-                                        <td><%= tof.posting_records.last.total_field_duty_day%></td>
+                                        <td><%= tof.posting_records.last.from rescue "NA"%></td>
+                                        <td><%= tof.posting_records.last.to rescue "NA" %></td>
+                                        <td><%= tof.posting_records.last.total_field_duty_day rescue "NA"%></td>
                                     </tr>
                                     <% end %>
                                 </tbody>
