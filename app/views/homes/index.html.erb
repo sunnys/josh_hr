@@ -6,7 +6,7 @@
                     <span class="dash-widget-icon"><i class="fa fa-cubes" aria-hidden="true"></i></span>
                     <div class="dash-widget-info">
                         <h3><%= @total_jawans%></h3>
-                        <span>Total Jawans</span>
+                        <span>Total JCO's/OR's</span>
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@
                                 <tbody>
                                     <% @total_on_leave.last(5).each do |tol| %>
                                     <tr>
-                                        <td><a href="/profiles/<%= tol.user.id %>"><%= tol.army_no %></a></td>
+                                        <td><a href="/profiles/<%= tol.user.id %>"><%= tol.user.army_no %></a></td>
                                         <td>
                                             <h2><a href="#"><%= tol.user.username %></a></h2>
                                         </td>
@@ -195,7 +195,7 @@
         </div>
         <div class="row">
             <h2> Need Attention </h2>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="panel panel-table">
                     <div class="panel-heading" style="background-color:red;color:white;">
                         <h3 class="panel-title">JCO's/OR's Low investment/High loans</h3>
@@ -237,7 +237,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="panel panel-table">
                     <div class="panel-heading red" style="background-color:red;color:white;">
                         <h3 class="panel-title">JCO's/OR's with no courses</h3>
@@ -248,7 +248,7 @@
                                 <thead>
                                     <tr>
                                         <th class="col-md-3">Army No </th>
-                                        <th class="col-md-3">Jawan Name </th>
+                                        <th class="col-md-3">Name </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -256,9 +256,48 @@
                                         <% if !ti.nil? %>
                                         <tr>
                                             <td>
-                                                <h2><a href="project-view.html"></a><%= ti.army_no %></a></h2>
+                                                <h2><a href="project-view.html"></a><%= ti.user.army_no %></a></h2>
                                             </td>
                                             <td><%= ti.user.username %></td>
+                                        </tr>
+                                        <% end %>
+                                    <% end %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-table">
+                    <div class="panel-heading red" style="background-color:red;color:white;">
+                        <h3 class="panel-title">JCO's/OR's with extended leave</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped custom-table m-b-0">
+                                <thead>
+                                    <tr>
+                                        <th>Army No</th>
+                                        <th>Name</th>
+                                        <th>Return Date</th>
+                                        <th>Total Count</th>
+                                        <th>Rule</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% @not_returned_leave.last(5).each do |ti| %>
+                                        <% if !ti.nil? %>
+                                        <tr>
+                                            <td>
+                                                <h2><a href="/profiles/<%= ti.professional_detail.user_id %>"><%= ti.professional_detail.user.army_no %></a></h2>
+                                            </td>
+                                            <td><%= ti.professional_detail.user.username %></td>
+                                            <td><%= ti.to rescue nil %></td>
+                                            <td><%= ti.total_no_of_days rescue nil %></td>
+                                            <td>
+                                                <span class=<%= (ti.type_of_leave == "AL" ? "label-success-border" :  "label-warning-border") rescue "label label-danger-border" %>><%= ti.type_of_leave rescue nil %></span>
+                                            </td>
                                         </tr>
                                         <% end %>
                                     <% end %>

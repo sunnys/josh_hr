@@ -40,7 +40,9 @@ class HomesController < ApplicationController
     @total_on_peace = (@total_jawans - @total_on_leave.count - @total_on_field.count)
     @total_investments = @users.map(&:personel_detail).select{|i| !i.investments.present?}
     @total_achievements = @users.map(&:personel_detail).select{|i| !i.achievements.blank?}
+    
     @no_courses = @users.map(&:professional_detail).select{|i| i.local_course.nil? and i.army_course.nil?}
+    @not_returned_leave = LeaveRecord.where(not_returned_on_date: true)
 
     gon.data = @users.map(&:personel_detail).map(&:mothertongue).group_by(&:itself).transform_values!(&:size).map{|k,v| {'y': (!k.nil? ? k : "NA"), 'a': v}}
     gon.trade_data = @users.map(&:personel_detail).map(&:trade).group_by(&:itself).transform_values!(&:size).map{|k,v| {'y': (!k.nil? ? k : "NA"), 'a': v}}
@@ -65,6 +67,8 @@ class HomesController < ApplicationController
   
   def investments_index
     @users = User.preload([:personel_detail, :professional_detail]).all
-    @total_investments = @users.map(&:personel_detail).select{|i| !i.investments.blank?}
+    @investments = @users.map(&:personel_detail).select{|i| !i.investments.blank?}
+    @loans = @users.map(&:personel_detail).select{|i| !i.loans.blank?}
+    @total_investments = @investments + @loans
   end
 end
