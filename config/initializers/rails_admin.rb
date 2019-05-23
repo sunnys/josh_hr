@@ -98,7 +98,7 @@ RailsAdmin.config do |config|
   end
 
   config.model 'MedicalCat' do
-    visible false
+    visible true
   end
 
   config.model 'ProfessionalTrainingAndCourse' do

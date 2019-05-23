@@ -67,8 +67,6 @@ class HomesController < ApplicationController
   
   def investments_index
     @users = User.preload([:personel_detail, :professional_detail]).all
-    @investments = @users.map(&:personel_detail).select{|i| !i.investments.blank?}
-    @loans = @users.map(&:personel_detail).select{|i| !i.loans.blank?}
-    @total_investments = @investments + @loans
+    @total_investments  = @users.map(&:personel_detail).select{|i| !i.investments.blank? or !i.loans.blank?} 
   end
 end

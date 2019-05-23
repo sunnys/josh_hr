@@ -30,4 +30,10 @@ class User < ApplicationRecord
   def custom_label_method
     "#{army_no}"
   end
+
+  def update_army_no(army_no)
+    self.old_army_no = self.army_no
+    self.army_no = army_no
+    self.save!
+  end
 end

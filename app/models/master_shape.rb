@@ -1,0 +1,2 @@
+class MasterShape < ApplicationRecord
+end

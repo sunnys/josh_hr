@@ -12,6 +12,8 @@ class ProfessionalDetail < ApplicationRecord
     has_many :leave_records , dependent: :destroy
     has_many :absenses , dependent: :destroy
     has_many :desertions , dependent: :destroy
+    has_many :service_particulars , dependent: :destroy
+
 
 
     accepts_nested_attributes_for :appointments

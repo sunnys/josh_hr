@@ -11,6 +11,8 @@ class LeaveRecord < ApplicationRecord
                     MasterRule.all.collect{ |p| [p.rule, p.rule]}
                 end
             end 
+            field :al
+            field :cl
             field :from
             field :to
             field :total_no_of_days
@@ -29,6 +31,8 @@ class LeaveRecord < ApplicationRecord
                     MasterRule.all.collect{ |p| [p.rule, p.rule]}
                 end
             end 
+            field :al
+            field :cl
             field :from
             field :to
             field :total_no_of_days
