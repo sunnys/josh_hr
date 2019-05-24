@@ -1,4 +1,5 @@
 class Wife < FamilyDetail
+    has_paper_trail
     rails_admin do
         create do 
             field :type , :enum do

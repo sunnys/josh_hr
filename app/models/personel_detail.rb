@@ -1,4 +1,5 @@
 class PersonelDetail < ApplicationRecord
+    has_paper_trail
     belongs_to :user
     has_one :home_address
     has_many :family_details, dependent: :destroy

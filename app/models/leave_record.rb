@@ -1,4 +1,5 @@
 class LeaveRecord < ApplicationRecord
+    has_paper_trail
     belongs_to :professional_detail
 
     # def custom_label_method

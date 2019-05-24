@@ -1,4 +1,5 @@
 class ServiceParticular < ApplicationRecord
+    has_paper_trail
     belongs_to :professional_detail
 
     rails_admin do

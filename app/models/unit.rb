@@ -1,4 +1,5 @@
 class Unit < ApplicationRecord
+    has_paper_trail
     has_many :unit_galleries, dependent: :destroy
     has_many :commanding_officers, dependent: :destroy
     has_many :battle_honors, dependent: :destroy

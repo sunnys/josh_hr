@@ -1,4 +1,5 @@
 class ProfessionalDetail < ApplicationRecord
+    has_paper_trail
     belongs_to :user
 
     has_many :appointments, dependent: :destroy

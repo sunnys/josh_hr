@@ -1,4 +1,5 @@
 class MedicalCat < ApplicationRecord
+    has_paper_trail
     belongs_to :professional_detail
     has_many :hospital_admission_histories, dependent: :destroy
 

@@ -1,4 +1,5 @@
 class RulePeriod < ApplicationRecord
+    has_paper_trail
     belongs_to :professional_detail
 
     def humanize_duration
