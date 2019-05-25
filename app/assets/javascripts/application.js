@@ -16,3 +16,4 @@
 //= require activestorage
 //= require_tree .
 //= require turbolinks
+//= require jquery_nested_form

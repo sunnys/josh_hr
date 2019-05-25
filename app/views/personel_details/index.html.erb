@@ -1,0 +1,95 @@
+<div class="page-wrapper" style="margin-left: 230px !important;">
+	<div class="content container-fluid">
+		<div class="row">
+			<div class="col-xs-4">
+				<h4 class="page-title">JCO's/OR's</h4>
+			</div>
+			<div class="col-xs-8 text-right m-b-30">
+				<a href="#" class="btn btn-primary pull-right rounded" data-toggle="modal" data-target="#add_employee"><i class="fa fa-plus"></i> Add JCO's/OR's</a>
+				<div class="view-icons">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="table-responsive">
+					<table class="table table-striped custom-table datatable">
+						<thead>
+							<tr>
+								<th style="width:30%;">Name</th>
+								<th>Army No</th>
+								<th>Email</th>
+								<th>Mobile</th>
+								<th>Date of enrolment</th>
+								<th>Rank</th>
+								<th class="text-right">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @personel_details.each do |personel_detail| %>
+								<tr>
+									<td>
+										<a href="profile.html" class="avatar">J</a>
+										<h2><a href="profile.html"><%= personel_detail.name %> <span><%= personel_detail.rank %></span></a></h2>
+									</td>
+									<td><%= personel_detail.army_no %></td>
+									<td><%= personel_detail.email %></td>
+									<td><%= personel_detail.mobile_no %></td>
+									<td><%= personel_detail.date_of_enrolment %></td>
+									<td>
+										<%= personel_detail.rank %>
+									</td>
+									<td class="text-right">
+										<div class="dropdown">
+											<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+											<ul class="dropdown-menu pull-right">
+												<li><a href="/personel_details/<%= personel_detail.id %>/edit"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
+												<li>
+													<a href="/personel_details/<%= personel_detail.id %>/edit_more_details"><i class="fa fa-pencil m-r-5"></i> Add More Details</a>
+													<!-- <a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/personel_details/<%#= personel_detail.id %>">Destroy</a> -->
+												</li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="add_employee" class="modal custom-modal fade" role="dialog">
+	<div class="modal-dialog">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<div class="modal-content modal-lg">
+			<div class="modal-header">
+				<h4 class="modal-title">Add Employee</h4>
+			</div>
+			<div class="modal-body">
+				<%= render 'form', personel_detail: @personel_detail %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="delete_employee" class="modal custom-modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content modal-md">
+			<div class="modal-header">
+				<h4 class="modal-title">Delete Employee</h4>
+			</div>
+			<form>
+				<div class="modal-body card-box">
+					<p>Are you sure want to delete this?</p>
+					<div class="m-t-20"> <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+						<button type="submit" class="btn btn-danger">Delete</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+

@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   resources :units
   resources :homes
+  resources :personel_details do
+    member do
+      get '/edit_more_details' => 'personel_details#edit_more_details'
+      post '/update_more_details' => 'personel_details#update_more_details'
+    end
+  end
   resources :profiles, only: [:index, :show] do
     member do
       get '/embodiment_report' => 'profiles#embodiment_report'

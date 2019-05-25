@@ -1,0 +1,266 @@
+<div class="page-wrapper" style="margin-left: 230px !important;">
+    <div class="content container-fluid">
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title">Edit More Details</h4>
+            </div>
+        </div>
+        
+            <div class="card-box">
+                <h3 class="card-title">Basic Informations</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="profile-img-wrap">
+                            <img class="inline-block" src="<%= @personel_detail.photo.url %>" alt="user">
+                        </div>
+                        <div class="profile-basic">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group form-focus">
+                                        <label class="control-label">Army No</label>
+                                        <input type="text" readonly class="form-control floating" value="<%= @personel_detail.army_no %>" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group form-focus">
+                                        <label class="control-label">Name</label>
+                                        <input type="text" readonly class="form-control floating" value="<%= @personel_detail.name %>" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group form-focus">
+                                        <label class="control-label">Rank</label>
+                                        <input type="text" readonly class="form-control floating" value="<%= @personel_detail.rank %>" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group form-focus select-focus">
+                                        <label class="control-label">Rank</label>
+                                        <input type="text" readonly class="form-control floating" value="<%= @personel_detail.rank %>" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%= nested_form_for @personel_detail do |f| %>
+                <div class="card-box">
+                    <h3 class="card-title">Home Address</h3>
+                    <%= f.fields_for :home_address do |home_address_form| %>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <label class="control-label">House Number</label>
+                                    <%= home_address_form.label :house_no, class: "control-label" %>
+                                    <%= home_address_form.text_field :house_no, class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <label class="control-label">Street</label>
+                                    <%= home_address_form.label :street, class: "control-label" %>
+                                    <%= home_address_form.text_field :street, class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <label class="control-label">Town</label>
+                                    <%= home_address_form.label :town, class: "control-label" %>
+                                    <%= home_address_form.text_field :town, class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <label class="control-label">Post Office</label>
+                                    <%= home_address_form.label :post_office, class: "control-label" %>
+                                    <%= home_address_form.text_field :post_office, class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <label class="control-label">Police Station</label>
+                                    <%= home_address_form.label :police_station, class: "control-label" %>
+                                    <%= home_address_form.text_field :police_station, class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <label class="control-label">Tehsil</label>
+                                    <%= home_address_form.label :tehsil, class: "control-label" %>
+                                    <%= home_address_form.text_field :tehsil, class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <label class="control-label">District</label>
+                                    <%= home_address_form.label :district, class: "control-label" %>
+                                    <%= home_address_form.text_field :district, class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <label class="control-label">State</label>
+                                    <%= home_address_form.label :state, class: "control-label" %>
+                                    <%= home_address_form.text_field :state, class: "form-control floating" %>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+                <div class="card-box">
+                    <h3 class="card-title">Family Details</h3>
+                    <div class="row">
+                        <%= f.fields_for :family_details do |fd_form| %>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <%= fd_form.label :type, class: "control-label" %>
+                                    <%= fd_form.select :type, options_for_select([ "OtherRelation", "Wife", "Kid" ], ["OtherRelation"]), class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <%= fd_form.label :relation_type, class: "control-label" %>
+                                    <%= fd_form.select :relation_type, options_for_select([ "Spouse", "Father", "Mother", "Kid", "Brother" ]), class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <%= fd_form.label :name, class: "control-label" %>
+                                    <%= fd_form.text_field :name, class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <%= fd_form.label :phone_number, class: "control-label" %>
+                                    <%= fd_form.text_field :phone_number, class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group form-focus">
+                                    <%= fd_form.label :address, class: "control-label" %>
+                                    <%= fd_form.text_field :address, class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <%= fd_form.label :date_of_birth, class: "control-label" %>
+                                    <%= fd_form.text_field :date_of_birth, class: "form-control datetimepicker floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <%= fd_form.label :photo, class: "control-label" %>
+                                    <%= fd_form.file_field :photo, class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <%= fd_form.link_to_remove "", :class => 'fa fa-trash delete-img btn btn-danger link-to-remove', :style => 'color:#fff;margin-left:5px' %>
+                            
+                        <% end %>
+                    </div>
+                    <div class="add-more">
+                        <%= f.link_to_add "Add Family Member", :family_details, :class => "btn btn-primary add_nested_field" %>
+                    </div>
+                </div>
+                <div class="card-box">
+                    <h3 class="card-title">Education Informations</h3>
+                    
+                    <div class="row">
+                        <%= f.fields_for :educations do |education_form| %>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <%= education_form.label :degree_name, class: "control-label" %>
+                                    <%= education_form.text_field :degree_name, class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <%= education_form.label :from, class: "control-label" %>
+                                    <%= education_form.text_field :from, class: "form-control datetimepicker floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <%= education_form.label :to, class: "control-label" %>
+                                    <%= education_form.text_field :to, class: "form-control datetimepicker floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <%= education_form.label :institute_name, class: "control-label" %>
+                                    <%= education_form.text_field :institute_name, class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group form-focus">
+                                    <%= education_form.label :degree_type, class: "control-label" %>
+                                    <%= education_form.text_field :degree_type, class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <%= education_form.link_to_remove "", :class => 'fa fa-trash delete-img btn btn-danger link-to-remove', :style => 'color:#fff;margin-left:5px' %>
+                        <% end %>
+                    </div>
+                    <div class="add-more">
+                        <%= f.link_to_add "Add Education Detail", :educations, :class => "btn btn-primary add_nested_field" %>
+                    </div>
+                </div>
+                <div class="card-box">
+                    <h3 class="card-title">Bank Accounts</h3>
+                    
+                    <div class="row">
+                        <%= f.fields_for :bank_accounts do |bank_account_form| %>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <%= bank_account_form.label :ifsc_code, class: "control-label" %>
+                                    <%= bank_account_form.text_field :ifsc_code, class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <%= bank_account_form.label :micr_no, class: "control-label" %>
+                                    <%= bank_account_form.text_field :micr_no, class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <%= bank_account_form.label :bank_code, class: "control-label" %>
+                                    <%= bank_account_form.text_field :bank_code, class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <%= bank_account_form.label :account_number, class: "control-label" %>
+                                    <%= bank_account_form.text_field :account_number, class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group form-focus">
+                                    <%= bank_account_form.label :joint, class: "control-label" %>
+                                    <%= bank_account_form.check_box :joint, class: "form-control floating" %>
+                                </div>
+                            </div>
+                            <%= bank_account_form.link_to_remove "", :class => 'fa fa-trash delete-img btn btn-danger link-to-remove', :style => 'color:#fff;margin-left:5px' %>
+                        <% end %>
+                    </div>
+                    <div class="add-more">
+                        <%= f.link_to_add "Add Bank Account", :bank_accounts, :class => "btn btn-primary add_nested_field" %>
+                    </div>
+                </div>
+
+                <div class="text-center m-t-20">
+                    <button class="btn btn-primary btn-lg" type="button">Save &amp; update</button>
+                </div>
+            <% end %>
+    </div>
+</div>
+<script>
+    $('.add_nested_field').on('click', function(e){
+        console.log("Clicked");
+        setTimeout(function(){
+            $('.datetimepicker').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        }, 1000)
+
+    });
+</script>

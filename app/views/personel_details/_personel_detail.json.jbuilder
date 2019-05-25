@@ -1,0 +1,2 @@
+json.extract! personel_detail, :id, :id, :army_no, :father_name, :rank, :appointment, :name, :religion, :main_class, :sub_class, :med_cat, :mothertongue, :date_of_enrolment, :date_of_birth, :age_on_enrolment, :attestation, :date_of_attestation, :driving_license_no, :mobile_no, :adhar_no, :pancard_no, :email, :photo, :family_photo, :user_id, :created_at, :updated_at, :trade, :created_at, :updated_at
+json.url personel_detail_url(personel_detail, format: :json)
