@@ -1,0 +1,74 @@
+<div class="page-wrapper" style="margin-left: 230px !important;">
+	<div class="content container-fluid">
+		<div class="row">
+			<div class="col-xs-4">
+				<h4 class="page-title">Posting Records</h4>
+			</div>
+			<div class="col-xs-8 text-right m-b-30">
+				<a href="#" class="btn btn-primary pull-right rounded" data-toggle="modal" data-target="#add_posting_record"><i class="fa fa-plus"></i> Add Posting Records</a>
+				<div class="view-icons">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="table-responsive">
+					<table class="table table-striped custom-table datatable">
+						<thead>
+							<tr>
+								<th style="width:30%;">Name</th>
+								<th>From</th>
+								<th>To</th>
+								<th>Peace Duty</th>
+								<th>Field Duty</th>
+								<th>Total Peace Duty Day</th>
+                <th>Total Field Duty Day</th>
+								<th class="text-right">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @posting_records.each do |posting_record| %>
+								<tr>
+									<td>
+										<a href="profile.html" class="avatar">J</a>
+										<h2><a href="profile.html"><%= posting_record.professional_detail.user.username %></a></h2>
+									</td>
+									<td><%= posting_record.professional_detail.army_no %></td>
+									<td><%= posting_record.from %></td>
+									<td><%= posting_record.to %></td>
+									<td><%= posting_record.peace_duty %></td>
+									<td><%= posting_record.field_dduty %></td>
+									<td><%= posting_record.total_peace_duty_day %></td>
+                  <td><%= posting_record.total_field_duty_day %></td>
+									<td class="text-right">
+										<div class="dropdown">
+											<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+											<ul class="dropdown-menu pull-right">
+												<li><a href="/posting_records/<%= posting_record.id %>/edit"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="add_posting_record" class="modal custom-modal fade" role="dialog">
+	<div class="modal-dialog">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<div class="modal-content modal-lg">
+			<div class="modal-header">
+				<h4 class="modal-title">Add Posting Record</h4>
+			</div>
+			<div class="modal-body">
+				<%= render 'form', posting_record: @posting_record %>
+			</div>
+		</div>
+	</div>
+</div>
+

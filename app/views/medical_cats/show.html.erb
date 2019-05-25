@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @medical_cat.id %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @medical_cat.date %>
+</p>
+
+<p>
+  <strong>Nature of emergency:</strong>
+  <%= @medical_cat.nature_of_emergency %>
+</p>
+
+<p>
+  <strong>Permanent:</strong>
+  <%= @medical_cat.permanent %>
+</p>
+
+<p>
+  <strong>Period year:</strong>
+  <%= @medical_cat.period_year %>
+</p>
+
+<p>
+  <strong>Period month:</strong>
+  <%= @medical_cat.period_month %>
+</p>
+
+<p>
+  <strong>Hospitalized:</strong>
+  <%= @medical_cat.hospitalized %>
+</p>
+
+<p>
+  <strong>Professional detail:</strong>
+  <%= @medical_cat.professional_detail_id %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @medical_cat.created_at %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @medical_cat.updated_at %>
+</p>
+
+<p>
+  <strong>Shape:</strong>
+  <%= @medical_cat.shape %>
+</p>
+
+<%= link_to 'Edit', edit_medical_cat_path(@medical_cat) %> |
+<%= link_to 'Back', medical_cats_path %>

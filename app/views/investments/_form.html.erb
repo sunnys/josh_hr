@@ -1,0 +1,61 @@
+<%= form_with(model: investment, local: true) do |form| %>
+  <% if investment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(investment.errors.count, "error") %> prohibited this investment from being saved:</h2>
+
+      <ul>
+      <% investment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :investment_type, class: "control-label"  %>
+    <%= form.text_field :investment_type, class: "form-control" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :amount, class: "control-label"  %>
+    <%= form.text_field :amount, class: "form-control" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :premium, class: "control-label"  %>
+    <%= form.text_field :premium, class: "form-control" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :period, class: "control-label"  %>
+    <%= form.number_field :period, class: "form-control" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :date_of_maturity, class: "control-label"  %>
+    <%= form.text_field :date_of_maturity, class: "form-control datetimepicker" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :personel_detail_id, class: "control-label"  %>
+    <%= form.number_field :personel_detail_id, class: "form-control" %>
+  </div>
+</div>
+
+ <div class="row"> 
+  <div class="m-t-20 text-center">
+    <%= form.submit "Save Investment", class: "btn btn-primary" %>
+  </div>
+</div>
+<% end %>

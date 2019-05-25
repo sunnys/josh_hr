@@ -1,0 +1,89 @@
+<%= form_with(model: medical_cat, local: true) do |form| %>
+  <% if medical_cat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(medical_cat.errors.count, "error") %> prohibited this medical_cat from being saved:</h2>
+
+      <ul>
+      <% medical_cat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="col-sm-6">
+  <div class="field">
+    <%= form.label :date, class: "control-label"  %>
+    <%= form.text_field :date, class: "form-control datetimepicker" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="field">
+    <%= form.label :nature_of_emergency, class: "control-label"  %>
+    <%= form.text_field :nature_of_emergency, class: "form-control" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="field">
+    <%= form.label :permanent, class: "control-label"  %>
+    <%= form.check_box :permanent, class: "form-control" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="field">
+    <%= form.label :period_year, class: "control-label"  %>
+    <%= form.number_field :period_year, class: "form-control" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="field">
+    <%= form.label :period_month, class: "control-label"  %>
+    <%= form.number_field :period_month, class: "form-control" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="field">
+    <%= form.label :hospitalized, class: "control-label"  %>
+    <%= form.check_box :hospitalized, class: "form-control" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="field">
+    <%= form.label :professional_detail_id, class: "control-label"  %>
+    <%= form.number_field :professional_detail_id, class: "form-control" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="field">
+    <%= form.label :created_at, class: "control-label"  %>
+    <%= form.text_field :created_at, class: "form-control datetimepicker" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="field">
+    <%= form.label :updated_at, class: "control-label"  %>
+    <%= form.text_field :updated_at, class: "form-control datetimepicker" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="field">
+    <%= form.label :shape, class: "control-label"  %>
+    <%= form.text_field :shape, class: "form-control" %>
+  </div>
+</div>
+
+  <<div class="row"> 
+  <div class="m-t-20 text-center">
+    <%= form.submit "Save Medical Cat", class: "btn btn-primary" %>
+  </div>
+</div>
+<% end %>

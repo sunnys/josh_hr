@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @posting_record.id %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @posting_record.from %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @posting_record.to %>
+</p>
+
+<p>
+  <strong>Peace duty:</strong>
+  <%= @posting_record.peace_duty %>
+</p>
+
+<p>
+  <strong>Field dduty:</strong>
+  <%= @posting_record.field_dduty %>
+</p>
+
+<p>
+  <strong>Total peace duty day:</strong>
+  <%= @posting_record.total_peace_duty_day %>
+</p>
+
+<p>
+  <strong>Total field duty day:</strong>
+  <%= @posting_record.total_field_duty_day %>
+</p>
+
+<p>
+  <strong>Professional detail:</strong>
+  <%= @posting_record.professional_detail_id %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @posting_record.created_at %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @posting_record.updated_at %>
+</p>
+
+<%= link_to 'Edit', edit_posting_record_path(@posting_record) %> |
+<%= link_to 'Back', posting_records_path %>

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @investment.id %>
+</p>
+
+<p>
+  <strong>Investment type:</strong>
+  <%= @investment.investment_type %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @investment.amount %>
+</p>
+
+<p>
+  <strong>Premium:</strong>
+  <%= @investment.premium %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @investment.period %>
+</p>
+
+<p>
+  <strong>Date of maturity:</strong>
+  <%= @investment.date_of_maturity %>
+</p>
+
+<p>
+  <strong>Personel detail:</strong>
+  <%= @investment.personel_detail_id %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @investment.created_at %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @investment.updated_at %>
+</p>
+
+<%= link_to 'Edit', edit_investment_path(@investment) %> |
+<%= link_to 'Back', investments_path %>

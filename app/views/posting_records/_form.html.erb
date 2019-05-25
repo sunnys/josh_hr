@@ -1,0 +1,68 @@
+<%= form_with(model: posting_record, local: true) do |form| %>
+  <% if posting_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(posting_record.errors.count, "error") %> prohibited this posting_record from being saved:</h2>
+
+      <ul>
+      <% posting_record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="col-sm-6">
+  <div class="field">
+    <%= form.label :from, class: "control-label"   %>
+    <%= form.text_field :from, class: "form-control datetimepicker" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="field">
+    <%= form.label :to, class: "control-label"   %>
+    <%= form.text_field :to, class: "form-control datetimepicker" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="field">
+    <%= form.label :peace_duty, class: "control-label"   %>
+    <%= form.check_box :peace_duty, class: "form-control" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="field">
+    <%= form.label :field_dduty, class: "control-label"   %>
+    <%= form.check_box :field_dduty, class: "form-control" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="field">
+    <%= form.label :total_peace_duty_day, class: "control-label"   %>
+    <%= form.number_field :total_peace_duty_day, class: "form-control" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="field">
+    <%= form.label :total_field_duty_day, class: "control-label"   %>
+    <%= form.number_field :total_field_duty_day, class: "form-control" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="field">
+    <%= form.label :professional_detail_id, class: "control-label"   %>
+    <%= form.number_field :professional_detail_id, class: "form-control" %>
+  </div>
+</div>
+
+ <div class="row"> 
+  <div class="m-t-20 text-center">
+    <%= form.submit "Save Posting Record", class: "btn btn-primary" %>
+  </div>
+</div>
+<% end %>

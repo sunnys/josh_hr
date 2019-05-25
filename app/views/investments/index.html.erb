@@ -1,0 +1,72 @@
+<div class="page-wrapper" style="margin-left: 230px !important;">
+	<div class="content container-fluid">
+		<div class="row">
+			<div class="col-xs-4">
+				<h4 class="page-title">Investments</h4>
+			</div>
+			<div class="col-xs-8 text-right m-b-30">
+				<a href="#" class="btn btn-primary pull-right rounded" data-toggle="modal" data-target="#add_investment"><i class="fa fa-plus"></i> Add Investments</a>
+				<div class="view-icons">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="table-responsive">
+					<table class="table table-striped custom-table datatable">
+						<thead>
+							<tr>
+								<th style="width:30%;">Name</th>
+								<th>Investment Type</th>
+								<th>Amount</th>
+								<th>Premium</th>
+								<th>Period</th>
+								<th>Date Of Maturity</th>
+								<th class="text-right">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @investments.each do |investment| %>
+								<tr>
+									<td>
+										<a href="profile.html" class="avatar">J</a>
+										<h2><a href="profile.html"><%= investment.personel_detail.user.username %></a></h2>
+									</td>
+									<td><%= investment.personel_detail.army_no %></td>
+									<td><%= investment.investment_type %></td>
+									<td><%= investment.amount %></td>
+									<td><%= investment.premium %></td>
+									<td><%= investment.period %></td>
+									<td><%= investment.date_of_maturity %></td>
+									<td class="text-right">
+										<div class="dropdown">
+											<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+											<ul class="dropdown-menu pull-right">
+												<li><a href="/investments/<%= investment.id %>/edit"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="add_investment" class="modal custom-modal fade" role="dialog">
+	<div class="modal-dialog">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<div class="modal-content modal-lg">
+			<div class="modal-header">
+				<h4 class="modal-title">Add Investment</h4>
+			</div>
+			<div class="modal-body">
+				<%= render 'form', investment: @investment %>
+			</div>
+		</div>
+	</div>
+</div>
+

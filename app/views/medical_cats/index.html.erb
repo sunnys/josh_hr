@@ -1,0 +1,82 @@
+<div class="page-wrapper" style="margin-left: 230px !important;">
+	<div class="content container-fluid">
+		<div class="row">
+			<div class="col-xs-4">
+				<h4 class="page-title">Medical Cats</h4>
+			</div>
+			<div class="col-xs-8 text-right m-b-30">
+				<a href="#" class="btn btn-primary pull-right rounded" data-toggle="modal" data-target="#add_medical_cat"><i class="fa fa-plus"></i> Add Medical Cats</a>
+				<div class="view-icons">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="table-responsive">
+					<table class="table table-striped custom-table datatable">
+						<thead>
+							<tr>
+								<th style="width:30%;">Name</th>
+								<th>Date</th>
+								<th>Nature Of Emergency</th>
+								<th>Permanent</th>
+								<th>Period Year</th>
+								<th>Period Month</th>
+                <th>Hospitalized</th>
+                <th>Professional Detail Id</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+                <th>Shape</th>
+								<th class="text-right">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @medical_cats.each do |medical_cat| %>
+								<tr>
+									<td>
+										<a href="profile.html" class="avatar">J</a>
+										<h2><a href="profile.html"><%= medical_cat.professional_detail.user.username %></a></h2>
+									</td>
+									<td><%= medical_cat.professional_detail.army_no %></td>
+									<td><%= medical_cat.date %></td>
+									<td><%= medical_cat.nature_of_emergency %></td>
+									<td><%= medical_cat.permanent %></td>
+									<td><%= medical_cat.period_year %></td>
+									<td><%= medical_cat.period_month %></td>
+                  <td><%= medical_cat.hospitalized %></td>
+                  <td><%= medical_cat.professional_detail_id %></td>
+                  <td><%= medical_cat.created_at %></td>
+                  <td><%= medical_cat.updated_at %></td>
+                  <td><%= medical_cat.shape %></td>
+									<td class="text-right">
+										<div class="dropdown">
+											<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+											<ul class="dropdown-menu pull-right">
+												<li><a href="/medical_cats/<%= medical_cat.id %>/edit"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="add_medical_cat" class="modal custom-modal fade" role="dialog">
+	<div class="modal-dialog">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<div class="modal-content modal-lg">
+			<div class="modal-header">
+				<h4 class="modal-title">Add Posting Record</h4>
+			</div>
+			<div class="modal-body">
+				<%= render 'form', medical_cat: @medical_cat %>
+			</div>
+		</div>
+	</div>
+</div>
+
