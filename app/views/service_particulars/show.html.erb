@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Professional detail:</strong>
+  <%= @service_particular.professional_detail_id %>
+</p>
+
+<p>
+  <strong>Date from:</strong>
+  <%= @service_particular.date_from %>
+</p>
+
+<p>
+  <strong>Date to:</strong>
+  <%= @service_particular.date_to %>
+</p>
+
+<p>
+  <strong>Type of service:</strong>
+  <%= @service_particular.type_of_service %>
+</p>
+
+<p>
+  <strong>Days:</strong>
+  <%= @service_particular.days %>
+</p>
+
+<p>
+  <strong>Autority:</strong>
+  <%= @service_particular.autority %>
+</p>
+
+<%= link_to 'Edit', edit_service_particular_path(@service_particular) %> |
+<%= link_to 'Back', service_particulars_path %>

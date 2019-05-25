@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :units
   resources :homes
+  resources :service_particulars
+  resources :leave_records
+  resources :loans
   resources :personel_details do
     member do
       get '/edit_more_details' => 'personel_details#edit_more_details'

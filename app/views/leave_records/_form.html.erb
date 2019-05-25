@@ -1,0 +1,82 @@
+<%= form_with(model: leave_record, local: true) do |form| %>
+  <% if leave_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(leave_record.errors.count, "error") %> prohibited this leave_record from being saved:</h2>
+
+      <ul>
+      <% leave_record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :type_of_leave, class: "control-label" %>
+    <%= form.text_field :type_of_leave, class: "form-control" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :from, class: "control-label" %>
+    <%= form.text_field :from, class: "form-control datetimepicker" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :to, class: "control-label" %>
+    <%= form.text_field :to, class: "form-control datetimepicker" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :total_no_of_days, class: "control-label" %>
+    <%= form.number_field :total_no_of_days, class: "form-control" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :date_of_rejoining, class: "control-label" %>
+    <%= form.text_field :date_of_rejoining, class: "form-control datetimepicker" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :professional_detail_id, class: "control-label" %>
+    <%= form.number_field :professional_detail_id, class: "form-control" %>
+  </div>
+</div>
+
+<div class="col-sm-4">
+  <div class="form-group">
+    <%= form.label :not_returned_on_date, class: "control-label" %>
+    <%= form.check_box :not_returned_on_date, class: "form-control" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :al, "Annual Leave", class: "control-label" %>
+    <%= form.check_box :al, class: "form-control" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :cl, "Casual Leave", class: "control-label" %>
+    <%= form.check_box :cl, class: "form-control" %>
+  </div>
+</div>
+
+<div class="row"> 
+  <div class="m-t-20 text-center">
+    <%= form.submit "Save Leave Record", class: "btn btn-primary" %>
+  </div>
+</div>
+<% end %>

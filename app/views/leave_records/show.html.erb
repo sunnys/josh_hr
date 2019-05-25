@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @leave_record.id %>
+</p>
+
+<p>
+  <strong>Type of leave:</strong>
+  <%= @leave_record.type_of_leave %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @leave_record.from %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @leave_record.to %>
+</p>
+
+<p>
+  <strong>Total no of days:</strong>
+  <%= @leave_record.total_no_of_days %>
+</p>
+
+<p>
+  <strong>Date of rejoining:</strong>
+  <%= @leave_record.date_of_rejoining %>
+</p>
+
+<p>
+  <strong>Professional detail:</strong>
+  <%= @leave_record.professional_detail_id %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @leave_record.created_at %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @leave_record.updated_at %>
+</p>
+
+<p>
+  <strong>Not returned on date:</strong>
+  <%= @leave_record.not_returned_on_date %>
+</p>
+
+<p>
+  <strong>Al:</strong>
+  <%= @leave_record.al %>
+</p>
+
+<p>
+  <strong>Cl:</strong>
+  <%= @leave_record.cl %>
+</p>
+
+<%= link_to 'Edit', edit_leave_record_path(@leave_record) %> |
+<%= link_to 'Back', leave_records_path %>

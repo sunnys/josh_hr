@@ -1,0 +1,61 @@
+<%= form_with(model: loan, local: true) do |form| %>
+  <% if loan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(loan.errors.count, "error") %> prohibited this loan from being saved:</h2>
+
+      <ul>
+      <% loan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :loan_type, class: "control-label" %>
+    <%= form.text_field :loan_type, class: "form-control"  %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :amount, class: "control-label" %>
+    <%= form.text_field :amount, class: "form-control"  %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :emi, class: "control-label" %>
+    <%= form.text_field :emi, class: "form-control"  %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :duration, class: "control-label" %>
+    <%= form.number_field :duration, class: "form-control"  %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :loan_sanction_date, class: "control-label" %>
+    <%= form.text_field  :loan_sanction_date, class: "form-control datetimepicker"  %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :personel_detail_id, class: "control-label" %>
+    <%= form.number_field :personel_detail_id, class: "form-control"  %>
+  </div>
+</div>
+
+<div class="row"> 
+  <div class="m-t-20 text-center">
+    <%= form.submit "Save Loan", class: "btn btn-primary" %>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @loan.id %>
+</p>
+
+<p>
+  <strong>Loan type:</strong>
+  <%= @loan.loan_type %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @loan.amount %>
+</p>
+
+<p>
+  <strong>Emi:</strong>
+  <%= @loan.emi %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @loan.duration %>
+</p>
+
+<p>
+  <strong>Loan sanction date:</strong>
+  <%= @loan.loan_sanction_date %>
+</p>
+
+<p>
+  <strong>Personel detail:</strong>
+  <%= @loan.personel_detail_id %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @loan.created_at %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @loan.updated_at %>
+</p>
+
+<%= link_to 'Edit', edit_loan_path(@loan) %> |
+<%= link_to 'Back', loans_path %>

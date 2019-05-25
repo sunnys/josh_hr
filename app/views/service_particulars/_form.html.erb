@@ -1,0 +1,62 @@
+<%= form_with(model: service_particular, local: true) do |form| %>
+  <% if service_particular.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(service_particular.errors.count, "error") %> prohibited this service_particular from being saved:</h2>
+
+      <ul>
+      <% service_particular.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :professional_detail_id, class: "control-label" %>
+    <%= form.select :professional_detail_id, options_from_collection_for_select(ProfessionalDetail.all, 'id', 'army_no'), {:include_blank => "Select"}, {:class=> "form-control select"} %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :date_from, class: "control-label" %>
+    <%= form.text_field :date_from, class: "form-control datetimepicker" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :date_to, class: "control-label" %>
+    <%= form.text_field :date_to, class: "form-control datetimepicker" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :type_of_service, class: "control-label" %>
+    <%= form.select :type_of_service, options_from_collection_for_select(MasterRule.all, 'rule', 'rule'), {:include_blank => "Select"}, {:class=> "form-control select"} %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :days, class: "control-label" %>
+    <%= form.number_field :days, class: "form-control" %>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="form-group">
+    <%= form.label :autority, class: "control-label" %>
+    <%= form.text_field :autority, class: "form-control" %>
+  </div>
+</div>
+
+<div class="row"> 
+  <div class="m-t-20 text-center">
+    <%= form.submit "Save Service Particular", class: "btn btn-primary" %>
+  </div>
+</div>
+<% end %>
