@@ -14,7 +14,7 @@
 <div class="col-sm-6">
   <div class="form-group">
     <%= form.label :type_of_leave, class: "control-label" %>
-    <%= form.text_field :type_of_leave, class: "form-control" %>
+    <%= form.select :type_of_leave, options_from_collection_for_select(MasterRule.all, 'rule', 'rule'), {:include_blank => "Select"}, {:class=> "form-control select"} %>
   </div>
 </div>
 
@@ -49,7 +49,7 @@
 <div class="col-sm-6">
   <div class="form-group">
     <%= form.label :professional_detail_id, class: "control-label" %>
-    <%= form.number_field :professional_detail_id, class: "form-control" %>
+    <%= form.select :professional_detail_id, options_from_collection_for_select(ProfessionalDetail.all, 'id', 'army_no'), {:include_blank => "Select"}, {:class=> "form-control select"} %>
   </div>
 </div>
 

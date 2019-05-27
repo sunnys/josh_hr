@@ -56,7 +56,7 @@
 <div class="col-sm-6">
   <div class="field">
     <%= form.label :professional_detail_id, class: "control-label"  %>
-    <%= form.number_field :professional_detail_id, class: "form-control" %>
+    <%= form.select :professional_detail_id, options_from_collection_for_select(ProfessionalDetail.all, 'id', 'army_no'), {:include_blank => "Select"}, {:class=> "form-control select"} %>
   </div>
 </div>
 
@@ -77,11 +77,11 @@
 <div class="col-sm-6">
   <div class="field">
     <%= form.label :shape, class: "control-label"  %>
-    <%= form.text_field :shape, class: "form-control" %>
+    <%= form.select :shape, options_from_collection_for_select(MasterShape.all, 'title', 'title'), {:include_blank => "Select"}, {:class=> "form-control select"} %>
   </div>
 </div>
 
-  <<div class="row"> 
+<div class="row"> 
   <div class="m-t-20 text-center">
     <%= form.submit "Save Medical Cat", class: "btn btn-primary" %>
   </div>
