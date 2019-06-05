@@ -259,7 +259,11 @@ end
 #     update_achievement(u)
 # end
 
-u = User.create!(email: "admin@example.com", password: "password", password_confirmation: "password", username: "Admin", army_no: "AAA777")
+u = User.create!(email: "admin@indianarmy.gov.in", password: "password", password_confirmation: "password", username: "Admin", army_no: "AAA777", admin: true)
+PersonelDetail.create!(user_id: u.id)
+ProfessionalDetail.create!(user_id: u.id)
+
+u = User.create!(email: "clerk@indianarmy.gov.in", password: "password", password_confirmation: "password", username: "Admin", army_no: "AAA778", clerk: true)
 PersonelDetail.create!(user_id: u.id)
 ProfessionalDetail.create!(user_id: u.id)
 # rescue Exception => ex
