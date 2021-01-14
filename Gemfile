@@ -63,7 +63,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'rails_admin_rollincode', '~> 1.0'
-gem 'rails_admin', '~> 1.3'
+gem 'rails_admin', '~> 1.4'
 gem "rails_admin_import", "~> 2.2"
 gem 'cancancan', '~> 2.0'
 gem 'carrierwave', '~> 1.0'
