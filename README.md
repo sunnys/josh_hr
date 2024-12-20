@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+This is build on rails 5 and the appropriate ruby version of that time
